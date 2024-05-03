@@ -37,17 +37,44 @@ jobs:
           cache: 'npm'
       - name: Install dependencies
         run: npm ci
+
+      # Lint
+      - name: Run linters
+        run: npm run lint
+
+      # Unit tests
+      - name: Run unit tests
+        run: npm run test:unit
+
       - name: Build
         run: npm run build
+
+      # I added the 404 stuff with that run thing:
       - name: Create 404 page
         run: cp ./dist/index.html ./dist/404.html
-      - name: Setup Pages
-        uses: actions/configure-pages@v4
+
       - name: Upload artifact
         uses: actions/upload-pages-artifact@v3
         with:
           # Upload dist folder
           path: './dist'
+
+      # E2E test our built application
+      - name: Install Playwright Browsers
+        run: npx playwright install --with-deps
+      - name: Run E2E tests
+        run: npm run test:e2e
+      - uses: actions/upload-artifact@v3
+        if: always()
+        with:
+          name: playwright-report
+          path: playwright-report/
+          retention-days: 7
+
+      # Deploy
+      - name: Setup Pages
+        uses: actions/configure-pages@v4
+
       - name: Deploy to GitHub Pages
         id: deployment
         uses: actions/deploy-pages@v4
