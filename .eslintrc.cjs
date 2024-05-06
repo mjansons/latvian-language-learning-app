@@ -3,7 +3,7 @@ require('@rushstack/eslint-patch/modern-module-resolution')
 
 module.exports = {
   root: true,
-  'extends': [
+  extends: [
     'plugin:vue/vue3-essential',
     'eslint:recommended',
     '@vue/eslint-config-typescript',
@@ -11,15 +11,17 @@ module.exports = {
   ],
   overrides: [
     {
-      files: [
-        'e2e/**/*.{test,spec}.{js,ts,jsx,tsx}'
-      ],
-      'extends': [
-        'plugin:playwright/recommended'
-      ]
+      files: ['e2e/**/*.{test,spec}.{js,ts,jsx,tsx}'],
+      extends: ['plugin:playwright/recommended']
     }
   ],
   parserOptions: {
     ecmaVersion: 'latest'
+  },
+  rules: {
+    'no-plusplus': 'off',
+    'vue/multi-word-component-names': 'off',
+    'vue/require-default-prop': 'off',
+    'no-unused-vars': ['error', { varsIgnorePattern: '^props$' }]
   }
 }
