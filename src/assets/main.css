@@ -1,35 +1,119 @@
-@import './base.css';
+:root {
+  --purple-100: #ae98ff;
+  --purple-200: #7b64cb;
+  --purple-300: #6b2bff4d;
+  --purple-400: #6b2bff;
+  --purple-900: #19113d;
+  --black-500: #524876;
+  --black-800: #121128;
+  --black-900: #07071b;
+  --white-900: #ffffffe6;
+  --white-100: #ffffff1a;
+  --white-400: #ffffff0a;
+  --red-100: #ff7d9c1a;
+  --red-300: #ff7d9c4D;
+  --red-900: #ff7d9c;
+  --green-100: #292D43;
+  --green-400: #3D606C;
+  --green-900: #65C5BF;
+
+}
+
+@font-face {
+  font-family: Satoshi-Medium;
+  src: url('./fonts/Satoshi-Medium.woff2') format('woff2'),
+    url('./fonts/Satoshi-Medium.woff') format('woff'),
+    url('./fonts/Satoshi-Medium.ttf') format('truetype');
+  font-weight: 500;
+  font-display: swap;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: Satoshi-Variable;
+  src: url('./fonts/Satoshi-Variable.woff2') format('woff2'),
+    url('./fonts/Satoshi-Variable.woff') format('woff'),
+    url('./fonts/Satoshi-Variable.ttf') format('truetype');
+  font-weight: 300 900;
+  font-display: swap;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: Satoshi-Bold;
+  src: url('./fonts/Satoshi-Bold.woff2') format('woff2'),
+    url('./fonts/Satoshi-Bold.woff') format('woff'),
+    url('./fonts/Satoshi-Bold.ttf') format('truetype');
+  font-weight: 700;
+  font-display: swap;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: Satoshi-Light;
+  src: url('./fonts/Satoshi-Light.woff2') format('woff2'),
+    url('./fonts/Satoshi-Light.woff') format('woff'),
+    url('./fonts/Satoshi-Light.ttf') format('truetype');
+  font-weight: 300;
+  font-display: swap;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: Satoshi-Regular;
+  src: url('./fonts/Satoshi-Regular.woff2') format('woff2'),
+    url('./fonts/Satoshi-Regular.woff') format('woff'),
+    url('./fonts/Satoshi-Regular.ttf') format('truetype');
+  font-weight: 400;
+  font-display: swap;
+  font-style: normal;
+}
+
+
+* {
+  color: var(--white-900);
+  font-family: Satoshi-Variable, sans-serif;
+}
+
+html {
+  box-sizing: content-box;
+  padding: 0;
+  margin: 0;
+  height: 100vh;
+  width: 100vw;
+  background-color: var(--black-800);
+}
+
+body {
+  box-sizing: content-box;
+  padding: 0;
+  margin: 0;
+  height: 100vh;
+  width: 100vw;
+}
 
 #app {
-  max-width: 1280px;
-  margin: 0 auto;
-  padding: 2rem;
-  font-weight: normal;
+  box-sizing: content-box;
+  padding: 0;
+  margin: 0;
+  height: 100vh;
+  width: 100vw;
 }
 
-a,
-.green {
-  text-decoration: none;
-  color: hsla(160, 100%, 37%, 1);
-  transition: 0.4s;
-  padding: 3px;
+.btn-2 {
+  display: flex;
+  flex-grow: 1;
+  background-color: var(--green-100);
+  width: 100%;
 }
 
-@media (hover: hover) {
-  a:hover {
-    background-color: hsla(160, 100%, 37%, 0.2);
-  }
+.header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
 }
 
-@media (min-width: 1024px) {
-  body {
-    display: flex;
-    place-items: center;
-  }
-
-  #app {
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    padding: 0 2rem;
-  }
+.streak {
+  display: flex;
+  align-items: center;
 }

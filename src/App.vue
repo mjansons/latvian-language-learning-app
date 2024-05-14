@@ -1,85 +1,101 @@
 <script setup lang="ts">
 import { RouterLink, RouterView } from 'vue-router'
-import HelloWorld from './components/HelloWorld.vue'
+import ErrorToast from './components/ErrorToast.vue'
+import { useViewStore } from './stores/ViewStore'
+
+const viewStore = useViewStore()
+
 </script>
 
 <template>
-  <header>
-    <img alt="Vue logo" class="logo" src="@/assets/logo.svg" width="125" height="125" />
-
     <div class="wrapper">
-      <HelloWorld msg="You did it!" />
-
-      <nav>
-        <RouterLink to="/">Home</RouterLink>
-        <RouterLink to="/about">About</RouterLink>
-      </nav>
+            <RouterView />
+        <nav>
+            <RouterLink :to="{ name: 'home' }" tabindex="-1">
+                <button type="button">
+                    <img src="./assets/icons/home.svg" alt="home button" /><span>Home</span>
+                </button>
+            </RouterLink>
+            <RouterLink :to="{ name: 'stats' }" tabindex="-1">
+                <button type="button">
+                    <img src="./assets/icons/stats.svg" alt="statistics button" /><span>Stats</span>
+                </button>
+            </RouterLink>
+            <RouterLink :to="{ name: 'settings' }" tabindex="-1">
+                <button type="button">
+                    <img src="./assets/icons/sprocket-1.svg" alt="settings button" /><span>Settings</span>
+                </button>
+            </RouterLink>
+        </nav>
+        <ErrorToast />
     </div>
-  </header>
-
-  <RouterView />
 </template>
 
 <style scoped>
-header {
-  line-height: 1.5;
-  max-height: 100vh;
-}
-
-.logo {
-  display: block;
-  margin: 0 auto 2rem;
+.wrapper {
+    box-sizing: content-box;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    height: 100%;
+    width: 100%;
 }
 
 nav {
-  width: 100%;
-  font-size: 12px;
-  text-align: center;
-  margin-top: 2rem;
-}
-
-nav a.router-link-exact-active {
-  color: var(--color-text);
-}
-
-nav a.router-link-exact-active:hover {
-  background-color: transparent;
-}
-
-nav a {
-  display: inline-block;
-  padding: 0 1rem;
-  border-left: 1px solid var(--color-border);
-}
-
-nav a:first-of-type {
-  border: 0;
-}
-
-@media (min-width: 1024px) {
-  header {
+    padding: 8px;
+    box-sizing: content-box;
     display: flex;
-    place-items: center;
-    padding-right: calc(var(--section-gap) / 2);
-  }
-
-  .logo {
-    margin: 0 2rem 0 0;
-  }
-
-  header .wrapper {
-    display: flex;
-    place-items: flex-start;
-    flex-wrap: wrap;
-  }
-
-  nav {
-    text-align: left;
-    margin-left: -1rem;
-    font-size: 1rem;
-
-    padding: 1rem 0;
-    margin-top: 1rem;
-  }
+    flex-direction: row;
+    align-content: flex-start;
 }
+a {
+    display: flex;
+    flex-grow: 1;
+    text-decoration: none;
+}
+
+button {
+    display: flex;
+    flex-grow: 1;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    background-color: var(--white-400);
+    color: var(--white-900);
+    border: 0.5px solid var(--white-100);
+    border-radius: 12px;
+    margin: 8px;
+
+    & img {
+        margin: 8px 8px 4px 8px;
+        width: 12px;
+        height: 12px;
+    }
+    & span {
+        margin: 4px 8px 8px 8px;
+        font-size: 12px;
+        text-decoration: none;
+    }
+}
+
+button:hover {
+    background-color: var(--purple-300);
+    cursor: pointer;
+}
+
+button:active {
+    background-color: var(--white-400);
+    border-color: var(--purple-400);
+}
+
+button:disabled {
+    cursor: not-allowed;
+    opacity: 20%;
+}
+
+@media only screen and (min-width: 750px) {
+}
+
 </style>
