@@ -1,9 +1,9 @@
 <script setup lang="ts">
 import { RouterLink, RouterView } from 'vue-router'
 import ErrorToast from './components/ErrorToast.vue'
-import { useViewStore } from './stores/ViewStore'
+// import { useViewStore } from './stores/ViewStore'
 
-const viewStore = useViewStore()
+// const viewStore = useViewStore()
 
 </script>
 
