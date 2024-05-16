@@ -1,4 +1,5 @@
 /* eslint-env node */
+const path = require('path')
 require('@rushstack/eslint-patch/modern-module-resolution')
 
 module.exports = {
@@ -22,15 +23,14 @@ module.exports = {
         'import/extensions': 'off'
     },
     settings: {
-        // to make our custom @ alias resolvable by ESLint import rules
         'import/resolver': {
-          [require.resolve('eslint-import-resolver-node')]: {},
-          [require.resolve('eslint-import-resolver-custom-alias')]: {
-            alias: {
-              '@': `${path.resolve(__dirname, './src')}`,
-            },
-            extensions: ['.mjs', '.js', '.jsx', '.json', '.node', '.ts', '.tsx'],
-          },
-        },
-    },
+            [require.resolve('eslint-import-resolver-node')]: {},
+            [require.resolve('eslint-import-resolver-custom-alias')]: {
+                alias: {
+                    '@': `${path.resolve(__dirname, './src')}`
+                },
+                extensions: ['.mjs', '.js', '.jsx', '.json', '.node', '.ts', '.tsx']
+            }
+        }
+    }
 }

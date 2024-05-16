@@ -1,7 +1,7 @@
 <script setup lang="ts">
 import { ref } from 'vue'
 import type { Ref } from 'vue'
-import { useViewStore } from '@/stores/ViewStore'
+import useViewStore from '@/stores/ViewStore'
 
 const viewStore = useViewStore()
 

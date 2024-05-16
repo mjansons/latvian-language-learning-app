@@ -1,5 +1,6 @@
 <script setup lang="ts">
-import { useViewStore } from '@/stores/ViewStore'
+import useViewStore from '@/stores/ViewStore'
+
 const viewStore = useViewStore()
 
 

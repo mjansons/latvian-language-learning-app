@@ -1,18 +1,12 @@
 <script setup lang="ts">
-import { useViewStore } from '@/stores/ViewStore'
-import { watchEffect } from 'vue'
+import useViewStore from '@/stores/ViewStore'
+
 const viewStore = useViewStore()
 
-watchEffect(() => {
-    if (document.referrer === document.location.href) {
-        viewStore.mainNavVisible = false
-        alert('Navigated back')
-    }
-})
 </script>
 <template>
     <header>
-        <RouterLink :to="{ name: 'module-1' }">
+        <RouterLink :to="{ name: 'module-1' }" @click="viewStore.mainNavVisible = true">
             <img src="@/assets/icons/x.svg" alt="exit button" />
         </RouterLink>
         <h1>Irregular verbs - present</h1>

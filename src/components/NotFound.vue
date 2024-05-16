@@ -1,5 +1,7 @@
 <script setup>
-import { RouterLink, onBeforeRouteLeave } from 'vue-router';
+import { RouterLink,  } from 'vue-router';
+
+// onBeforeRouteLeave
 // import { useViewStore } from '../stores/viewStore';
 
 // const viewStore = useViewStore();
