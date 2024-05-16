@@ -1,14 +1,16 @@
 <script setup lang="ts">
 import { onBeforeRouteLeave } from 'vue-router'
+import useViewStore from '@/stores/ViewStore'
+
+const viewStore = useViewStore()
 
 onBeforeRouteLeave((to) => {
     const toPath = to.path
-    if (toPath.startsWith('/level-1')) {
-        console.log('Navigating to a level 1 page')
-        // Add your logic for leaving the current route and navigating to a level 1 page
-      }
+    const previousPath = /^\/level-\d+\/module-\d+\/.+/
+    if (previousPath.test(toPath)) {
+        viewStore.mainNavVisible = false
+    }
 })
-
 </script>
 
 <template>

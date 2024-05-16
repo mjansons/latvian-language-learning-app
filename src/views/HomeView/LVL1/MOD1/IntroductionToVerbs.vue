@@ -1,8 +1,16 @@
 <script setup lang="ts">
 import useViewStore from '@/stores/ViewStore'
+import { onBeforeRouteLeave } from 'vue-router'
 
 const viewStore = useViewStore()
 
+onBeforeRouteLeave((to) => {
+    const toPath = to.path
+    const previousPath = /^\/level-\d+\/module-\d+$/
+    if (previousPath.test(toPath)) {
+        viewStore.mainNavVisible = true
+    }
+})
 
 </script>
 <template>

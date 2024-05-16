@@ -1,11 +1,21 @@
 <script setup lang="ts">
 import { ref } from 'vue'
 import type { Ref } from 'vue'
+import { onBeforeRouteLeave } from 'vue-router'
 import useViewStore from '@/stores/ViewStore'
 
 const viewStore = useViewStore()
 
+onBeforeRouteLeave((to) => {
+    const toPath = to.path
+    const nextPath = /^\/level-\d+\/module-\d+\/.+/
+    if (nextPath.test(toPath)) {
+        viewStore.mainNavVisible = false
+    }
+})
+
 const practiceView: Ref<boolean> = ref(false)
+
 </script>
 
 <template>
