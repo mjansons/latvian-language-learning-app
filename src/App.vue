@@ -41,7 +41,7 @@ const viewStore = useViewStore()
     display: flex;
     flex-direction: column;
     justify-content: space-between;
-    height: 100%;
+    height: 100vh;
     width: 100%;
 }
 

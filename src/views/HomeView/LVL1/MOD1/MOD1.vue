@@ -3,6 +3,7 @@ import { ref } from 'vue'
 import type { Ref } from 'vue'
 import { onBeforeRouteLeave } from 'vue-router'
 import useViewStore from '@/stores/ViewStore'
+import LessonButton from '@/components/LessonButton.vue'
 
 const viewStore = useViewStore()
 
@@ -15,7 +16,6 @@ onBeforeRouteLeave((to) => {
 })
 
 const practiceView: Ref<boolean> = ref(false)
-
 </script>
 
 <template>
@@ -36,83 +36,83 @@ const practiceView: Ref<boolean> = ref(false)
             <span class="label-left">Learn</span>
             <span class="label-right">Practice</span>
         </label>
-        <nav v-if="!practiceView">
-            <RouterLink :to="{ name: 'introduction-to-verbs' }" tabindex="-1">
-                <button type="button" class="btn-2" @click="viewStore.mainNavVisible = false">
-                    <img src="@/assets/icons/star.svg" alt="introduction to verbs" /><span
-                        >Introduction to verbs</span
-                    >
-                </button>
-            </RouterLink>
-            <RouterLink :to="{ name: 'irregular-verbs-present' }" tabindex="-1">
-                <button type="button" class="btn-2" @click="viewStore.mainNavVisible = false">
-                    <img src="@/assets/icons/star.svg" alt="irregular verbs present" /><span
-                        >Irregular verbs - present</span
-                    >
-                </button>
-            </RouterLink>
-            <RouterLink :to="{ name: 'test-present' }" tabindex="-1">
-                <button type="button" class="btn-2" @click="viewStore.mainNavVisible = false">
-                    <img src="@/assets/icons/star.svg" alt="test present" /><span
-                        >Test - present</span
-                    >
-                </button>
-            </RouterLink>
-            <RouterLink :to="{ name: 'irregular-verbs-past' }" tabindex="-1">
-                <button type="button" class="btn-2" @click="viewStore.mainNavVisible = false">
-                    <img src="@/assets/icons/star.svg" alt="irregular verbs past" /><span
-                        >Irregular verbs - past</span
-                    >
-                </button>
-            </RouterLink>
-            <RouterLink :to="{ name: 'test-past' }" tabindex="-1">
-                <button type="button" class="btn-2" @click="viewStore.mainNavVisible = false">
-                    <img src="@/assets/icons/star.svg" alt="test past" /><span>Test - past</span>
-                </button>
-            </RouterLink>
-            <RouterLink :to="{ name: 'irregular-verbs-future' }" tabindex="-1">
-                <button type="button" class="btn-2" @click="viewStore.mainNavVisible = false">
-                    <img src="@/assets/icons/star.svg" alt="irregular verbs future" /><span
-                        >Irregular verbs - future</span
-                    >
-                </button>
-            </RouterLink>
-            <RouterLink :to="{ name: 'test-future' }" tabindex="-1">
-                <button type="button" class="btn-2" @click="viewStore.mainNavVisible = false">
-                    <img src="@/assets/icons/star.svg" alt="test future" /><span
-                        >Test - future</span
-                    >
-                </button>
-            </RouterLink>
+        <nav class="module-nav" v-if="!practiceView">
+            <LessonButton
+                lessonHeader="Introduction"
+                lessonName="Introduction to verbs"
+                lessonInfo="How verbs are made"
+                path="introduction-to-verbs"
+            ></LessonButton>
+            <LessonButton
+                lessonHeader="Lesson 1"
+                lessonName="Irregular verbs - Present"
+                lessonInfo="Irregular verbs in present tense"
+                path="irregular-verbs-present"
+            ></LessonButton>
+            <LessonButton
+                lessonHeader="Test 1"
+                lessonName="Test - Present"
+                lessonInfo="Test on irregular verbs in Present tense"
+                path="test-present"
+            ></LessonButton>
+            <LessonButton
+                lessonHeader="Lesson 2"
+                lessonName="Irregular verbs - Past"
+                lessonInfo="Irregular verbs in Past tense"
+                path="irregular-verbs-past"
+            ></LessonButton>
+            <LessonButton
+                lessonHeader="Test 2"
+                lessonName="Test - Past"
+                lessonInfo="Test on irregular verbs in Past tense"
+                path="test-past"
+            ></LessonButton>
+            <LessonButton
+                lessonHeader="Lesson 3"
+                lessonName="Irregular verbs - Future"
+                lessonInfo="Irregular verbs in Future tense"
+                path="irregular-verbs-future"
+            ></LessonButton>
+            <LessonButton
+                lessonHeader="Test 3"
+                lessonName="Test - Future"
+                lessonInfo="Test on irregular verbs in Future tense"
+                path="test-future"
+            ></LessonButton>
         </nav>
-        <nav v-if="practiceView">
-            <RouterLink :to="{ name: 'test-present' }" tabindex="-1">
-                <button type="button" class="btn-2" @click="viewStore.mainNavVisible = false">
-                    <img src="@/assets/icons/star.svg" alt="test present" /><span
-                        >Test - present</span
-                    >
-                </button>
-            </RouterLink>
-            <RouterLink :to="{ name: 'test-past' }" tabindex="-1">
-                <button type="button" class="btn-2" @click="viewStore.mainNavVisible = false">
-                    <img src="@/assets/icons/star.svg" alt="test past" /><span>Test - past</span>
-                </button>
-            </RouterLink>
-            <RouterLink :to="{ name: 'test-future' }" tabindex="-1">
-                <button type="button" class="btn-2" @click="viewStore.mainNavVisible = false">
-                    <img src="@/assets/icons/star.svg" alt="test future" /><span
-                        >Test - future</span
-                    >
-                </button>
-            </RouterLink>
+        <nav class="module-nav" v-if="practiceView">
+            <LessonButton
+                lessonHeader="Test"
+                lessonName="Test - Present"
+                lessonInfo="Test on irregular verbs in Present tense"
+                path="test-present"
+            ></LessonButton>
+            <LessonButton
+                lessonHeader="Test 2"
+                lessonName="Test - Past"
+                lessonInfo="Test on irregular verbs in Past tense"
+                path="test-past"
+            ></LessonButton>
+            <LessonButton
+                lessonHeader="Test 3"
+                lessonName="Test - Future"
+                lessonInfo="Test on irregular verbs in Future tense"
+                path="test-future"
+            ></LessonButton>
         </nav>
     </div>
 </template>
 
 <style scoped>
-nav {
+.module-wrap {
+    overflow: hidden;
+}
+.module-nav {
     display: flex;
     flex-direction: column;
+    gap: 16px;
+    height: 100%;
+    overflow: scroll;
 }
 
 .toggle {
