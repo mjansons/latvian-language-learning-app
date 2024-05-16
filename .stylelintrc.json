@@ -1,1 +1,11 @@
-{ "extends": ["stylelint-config-standard", "stylelint-config-standard-vue"] }
+{
+    "extends": ["stylelint-config-standard", "stylelint-config-standard-vue"],
+    "rules": {
+        "declaration-block-no-redundant-longhand-properties": [
+            true,
+            {
+                "ignoreShorthands": ["place-content"]
+            }
+        ]
+    }
+}

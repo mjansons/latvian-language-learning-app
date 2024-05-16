@@ -1,12 +1,9 @@
-import { ref, computed } from 'vue'
+import { ref } from 'vue'
 import { defineStore } from 'pinia'
+import type { Ref } from 'vue'
 
 export const useViewStore = defineStore('counter', () => {
-  const count = ref(0)
-  const doubleCount = computed(() => count.value * 2)
-  function increment() {
-    count.value++
-  }
+    const mainNavVisible: Ref<boolean> = ref(true)
 
-  return { count, doubleCount, increment }
+    return { mainNavVisible }
 })

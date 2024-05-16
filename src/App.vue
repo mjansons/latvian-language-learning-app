@@ -1,16 +1,16 @@
 <script setup lang="ts">
 import { RouterLink, RouterView } from 'vue-router'
 import ErrorToast from './components/ErrorToast.vue'
-// import { useViewStore } from './stores/ViewStore'
+import { useViewStore } from './stores/ViewStore'
 
-// const viewStore = useViewStore()
+const viewStore = useViewStore()
 
 </script>
 
 <template>
     <div class="wrapper">
-            <RouterView />
-        <nav>
+        <RouterView />
+        <nav v-if="viewStore.mainNavVisible">
             <RouterLink :to="{ name: 'home' }" tabindex="-1">
                 <button type="button">
                     <img src="./assets/icons/home.svg" alt="home button" /><span>Home</span>
@@ -23,7 +23,9 @@ import ErrorToast from './components/ErrorToast.vue'
             </RouterLink>
             <RouterLink :to="{ name: 'settings' }" tabindex="-1">
                 <button type="button">
-                    <img src="./assets/icons/sprocket-1.svg" alt="settings button" /><span>Settings</span>
+                    <img src="./assets/icons/sprocket-1.svg" alt="settings button" /><span
+                        >Settings</span
+                    >
                 </button>
             </RouterLink>
         </nav>
@@ -97,5 +99,4 @@ button:disabled {
 
 @media only screen and (min-width: 750px) {
 }
-
 </style>

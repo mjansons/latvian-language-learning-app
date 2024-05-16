@@ -1,81 +1,102 @@
 <script setup lang="ts">
 import { ref } from 'vue'
+import type { Ref } from 'vue'
+import { useViewStore } from '@/stores/ViewStore'
 
-const isPracticeMode = ref<boolean>(false)
+const viewStore = useViewStore()
+
+const practiceView: Ref<boolean> = ref(false)
 </script>
-<template>
 
+<template>
     <div class="module-wrap">
+        <header>
+            <RouterLink :to="{ name: 'level-1' }">
+                <img src="@/assets/icons/arrow-left-white.svg" alt="back button" />
+            </RouterLink>
+            <h1>Irregular Verbs</h1>
+            <div class="streak">
+                <img src="@/assets/icons/energy-bolt.svg" alt="day streak" />
+                <div>0</div>
+            </div>
+        </header>
         <label class="toggle">
-            <input type="checkbox" @change="isPracticeMode = !isPracticeMode" />
+            <input type="checkbox" v-model="practiceView" />
             <span class="slider"></span>
             <span class="label-left">Learn</span>
             <span class="label-right">Practice</span>
         </label>
-        <nav v-if="!isPracticeMode">
+        <nav v-if="!practiceView">
             <RouterLink :to="{ name: 'introduction-to-verbs' }" tabindex="-1">
-                <button type="button" class="btn-2">
+                <button type="button" class="btn-2" @click="viewStore.mainNavVisible = false">
                     <img src="@/assets/icons/star.svg" alt="introduction to verbs" /><span
                         >Introduction to verbs</span
                     >
                 </button>
             </RouterLink>
             <RouterLink :to="{ name: 'irregular-verbs-present' }" tabindex="-1">
-                <button type="button" class="btn-2">
+                <button type="button" class="btn-2" @click="viewStore.mainNavVisible = false">
                     <img src="@/assets/icons/star.svg" alt="irregular verbs present" /><span
                         >Irregular verbs - present</span
                     >
                 </button>
             </RouterLink>
             <RouterLink :to="{ name: 'test-present' }" tabindex="-1">
-                <button type="button" class="btn-2">
-                    <img src="@/assets/icons/star.svg" alt="test present" /><span>Test - present</span>
+                <button type="button" class="btn-2" @click="viewStore.mainNavVisible = false">
+                    <img src="@/assets/icons/star.svg" alt="test present" /><span
+                        >Test - present</span
+                    >
                 </button>
             </RouterLink>
             <RouterLink :to="{ name: 'irregular-verbs-past' }" tabindex="-1">
-                <button type="button" class="btn-2">
+                <button type="button" class="btn-2" @click="viewStore.mainNavVisible = false">
                     <img src="@/assets/icons/star.svg" alt="irregular verbs past" /><span
                         >Irregular verbs - past</span
                     >
                 </button>
             </RouterLink>
             <RouterLink :to="{ name: 'test-past' }" tabindex="-1">
-                <button type="button" class="btn-2">
+                <button type="button" class="btn-2" @click="viewStore.mainNavVisible = false">
                     <img src="@/assets/icons/star.svg" alt="test past" /><span>Test - past</span>
                 </button>
             </RouterLink>
             <RouterLink :to="{ name: 'irregular-verbs-future' }" tabindex="-1">
-                <button type="button" class="btn-2">
+                <button type="button" class="btn-2" @click="viewStore.mainNavVisible = false">
                     <img src="@/assets/icons/star.svg" alt="irregular verbs future" /><span
                         >Irregular verbs - future</span
                     >
                 </button>
             </RouterLink>
             <RouterLink :to="{ name: 'test-future' }" tabindex="-1">
-                <button type="button" class="btn-2">
-                    <img src="@/assets/icons/star.svg" alt="test future" /><span>Test - future</span>
+                <button type="button" class="btn-2" @click="viewStore.mainNavVisible = false">
+                    <img src="@/assets/icons/star.svg" alt="test future" /><span
+                        >Test - future</span
+                    >
                 </button>
             </RouterLink>
         </nav>
-        <nav v-if="isPracticeMode">
+        <nav v-if="practiceView">
             <RouterLink :to="{ name: 'test-present' }" tabindex="-1">
-                <button type="button" class="btn-2">
-                    <img src="@/assets/icons/star.svg" alt="test present" /><span>Test - present</span>
+                <button type="button" class="btn-2" @click="viewStore.mainNavVisible = false">
+                    <img src="@/assets/icons/star.svg" alt="test present" /><span
+                        >Test - present</span
+                    >
                 </button>
             </RouterLink>
             <RouterLink :to="{ name: 'test-past' }" tabindex="-1">
-                <button type="button" class="btn-2">
+                <button type="button" class="btn-2" @click="viewStore.mainNavVisible = false">
                     <img src="@/assets/icons/star.svg" alt="test past" /><span>Test - past</span>
                 </button>
             </RouterLink>
             <RouterLink :to="{ name: 'test-future' }" tabindex="-1">
-                <button type="button" class="btn-2">
-                    <img src="@/assets/icons/star.svg" alt="test future" /><span>Test - future</span>
+                <button type="button" class="btn-2" @click="viewStore.mainNavVisible = false">
+                    <img src="@/assets/icons/star.svg" alt="test future" /><span
+                        >Test - future</span
+                    >
                 </button>
             </RouterLink>
         </nav>
     </div>
-
 </template>
 
 <style scoped>

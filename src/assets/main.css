@@ -92,6 +92,19 @@ body {
   width: 100vw;
 }
 
+header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  align-content: center;
+}
+
+footer {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+}
+
 #app {
   box-sizing: content-box;
   padding: 0;
@@ -107,10 +120,14 @@ body {
   width: 100%;
 }
 
-.header {
+.btn-next{
   display: flex;
-  justify-content: space-between;
-  align-items: center;
+  background-color: var(--green-100);
+}
+
+.btn-back{
+  display: flex;
+  background-color: var(--red-300);
 }
 
 .streak {
