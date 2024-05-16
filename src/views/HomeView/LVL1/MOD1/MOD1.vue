@@ -111,8 +111,8 @@ const practiceView: Ref<boolean> = ref(false)
     display: flex;
     flex-direction: column;
     gap: 16px;
-    height: 100%;
-    overflow: scroll;
+    height: calc(100vh - 211px);
+    overflow: auto;
 }
 
 .toggle {

@@ -1,4 +1,6 @@
-<script setup lang="ts"></script>
+<script setup lang="ts">
+import SectionButton from '@/components/SectionButton.vue'
+</script>
 <template>
     <nav>
         <header>
@@ -11,16 +13,16 @@
                 <div>0</div>
             </div>
         </header>
-        <RouterLink :to="{ name: 'module-1' }" tabindex="-1">
-            <button type="button" class="btn-2">
-                <img src="@/assets/icons/star.svg" alt="Module 1" /><span>Module 1</span>
-            </button>
-        </RouterLink>
-        <RouterLink :to="{ name: 'module-2' }" tabindex="-1">
-            <button type="button" class="btn-2">
-                <img src="@/assets/icons/star.svg" alt="Module 2" /><span>Module 2</span>
-            </button>
-        </RouterLink>
+        <SectionButton
+            sectionHeader="Module 1"
+            sectionName="Irregular Verbs"
+            path="module-1"
+        ></SectionButton>
+        <SectionButton
+            sectionHeader="Module 2"
+            sectionName="Regular Verbs"
+            path="module-2"
+        ></SectionButton>
     </nav>
 </template>
 

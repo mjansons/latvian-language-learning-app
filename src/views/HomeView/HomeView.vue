@@ -1,4 +1,6 @@
-<script setup lang="ts"></script>
+<script setup lang="ts">
+import SectionButton from '@/components/SectionButton.vue'
+</script>
 
 <template>
     <nav>
@@ -12,21 +14,21 @@
                 <div>0</div>
             </div>
         </header>
-        <RouterLink :to="{ name: 'level-1' }" tabindex="-1">
-            <button type="button" class="btn-2">
-                <img src="@/assets/icons/star.svg" alt="Level 1" /><span>Level 1</span>
-            </button>
-        </RouterLink>
-        <RouterLink :to="{ name: 'level-2' }" tabindex="-1">
-            <button type="button" class="btn-2">
-                <img src="@/assets/icons/star.svg" alt="Level 2" /><span>Level 2</span>
-            </button>
-        </RouterLink>
-        <RouterLink :to="{ name: 'level-3' }" tabindex="-1">
-            <button type="button" class="btn-2">
-                <img src="@/assets/icons/star.svg" alt="Level 3" /><span>Level 3</span>
-            </button>
-        </RouterLink>
+        <SectionButton
+            sectionHeader="Level 1"
+            sectionName="Verbs"
+            path="level-1"
+        ></SectionButton>
+        <SectionButton
+            sectionHeader="Level 1"
+            sectionName="Nouns and Articles"
+            path="level-2"
+        ></SectionButton>
+        <SectionButton
+            sectionHeader="Level 3"
+            sectionName="Pronouns and Determiners"
+            path="level-3"
+        ></SectionButton>
     </nav>
 </template>
 
