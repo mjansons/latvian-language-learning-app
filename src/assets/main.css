@@ -105,6 +105,10 @@ footer {
   justify-content: space-between;
 }
 
+footer>button:only-child {
+  margin-left: auto;
+}
+
 #app {
   box-sizing: content-box;
   padding: 0;
@@ -120,12 +124,12 @@ footer {
   width: 100%;
 }
 
-.btn-next{
+.btn-next {
   display: flex;
   background-color: var(--green-100);
 }
 
-.btn-back{
+.btn-back {
   display: flex;
   background-color: var(--red-300);
 }
@@ -133,4 +137,10 @@ footer {
 .streak {
   display: flex;
   align-items: center;
+}
+
+th, td {
+  border: 1px solid ;
+  padding: 8px;
+  text-align: left;
 }

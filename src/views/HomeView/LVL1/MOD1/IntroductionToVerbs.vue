@@ -1,6 +1,19 @@
 <script setup lang="ts">
 import useViewStore from '@/stores/ViewStore'
+import ProgressHeader from '@/components/ProgressHeader.vue'
 import { onBeforeRouteLeave } from 'vue-router'
+import { ref, computed } from 'vue'
+
+const LESSON_NAME = 'Introduction to verbs'
+const LESSON_PARTS = 2
+
+// importing component functions from ProgressHeader
+const child = ref<InstanceType<typeof ProgressHeader> | null>(null)
+const incrementProgress = () => child.value?.incrementProgress()
+const decrementProgress = () => child.value?.decrementProgress()
+const currentPart = computed(() => {
+    return (child.value as InstanceType<typeof ProgressHeader>)?.currentPart
+})
 
 const viewStore = useViewStore()
 
@@ -11,24 +24,60 @@ onBeforeRouteLeave((to) => {
         viewStore.mainNavVisible = true
     }
 })
-
 </script>
 <template>
-    <header>
-        <RouterLink :to="{ name: 'module-1' }" @click="viewStore.mainNavVisible = true">
-            <img src="@/assets/icons/x.svg" alt="exit button" />
-        </RouterLink>
-        <h1>Introduction to Verbs</h1>
-        <RouterLink :to="{ name: 'settings' }" @click="viewStore.mainNavVisible = true">
-            <img src="@/assets/icons/sprocket-2.svg" alt="settings" />
-        </RouterLink>
-    </header>
+    <ProgressHeader :headerName="LESSON_NAME" :totalParts="LESSON_PARTS" ref="child" />
+    <main>
+        <div v-if="currentPart === 1">
+            <h1>Introduction</h1>
+            <p>
+                In Latvian, verb conjugation is a fundamental aspect of the language, involving
+                changes in verb forms to express different tenses, aspects, moods, and personal
+                agreements. The conjugation process in Latvian is unique, reflecting the language's
+                distinct grammatical structure.
+            </p>
+            <p>
+                Verbs in Latvian undergo transformations to indicate time (past, present, future),
+                as well as to agree with the subject in terms of person and number. For example, the
+                verb "dzīvot" (to live) changes as "Es dzīvoju" (I live) in the present tense and
+                becomes "Es dzīvoju" (I lived) in the past tense. Notably, Latvian verbs are also
+                influenced by aspect - whether the action is completed or ongoing. These changes are
+                often marked by alterations in verb endings and sometimes by modifications in the
+                stem itself.
+            </p>
+        </div>
+
+        <div v-if="currentPart === 2">
+            <h1>Structure and Classification of Latvian Verbs</h1>
+            <p>
+                Latvian verbs can be divided into two main groups: regular and irregular verbs.
+                Unlike their irregular counterparts, regular verbs follow a consistent pattern in
+                their conjugation. Latvian regular verbs are further classified into three
+                conjugation groups.
+            </p>
+            <p>
+                Each conjugation group has specific rules and patterns for conjugating verbs in
+                various tenses and moods.
+            </p>
+        </div>
+    </main>
 
     <footer>
-        <button type="button" class="btn-back">Back</button>
+        <button v-if="currentPart > 1" type="button" class="btn-back" @click="decrementProgress">
+            Back
+        </button>
 
-        <RouterLink :to="{ name: 'irregular-verbs-present' }" tabindex="-1">
-            <button type="button" class="btn-next">Next</button>
+        <button
+            v-if="currentPart !== LESSON_PARTS"
+            type="button"
+            class="btn-next"
+            @click="incrementProgress"
+        >
+            Next
+        </button>
+
+        <RouterLink v-if="currentPart === LESSON_PARTS" :to="{ name: 'module-1' }" tabindex="-1">
+            <button type="button" class="btn-next">Finish</button>
         </RouterLink>
     </footer>
 </template>

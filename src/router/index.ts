@@ -79,15 +79,21 @@ const router = createRouter({
             name: 'level-2',
             component: () => import('@/views/HomeView/LVL2/LVL2.vue')
         },
+// Level 3
         {
             path: '/level-3',
             name: 'level-3',
             component: () => import('@/views/HomeView/LVL3/LVL3.vue')
         },
         {
+            path: '/paywall',
+            name: 'paywall',
+            component: () => import('@/components/Paywall.vue')
+        },
+        {
             path: '/:catchAll(.*)',
             name: 'notFound',
-            component: () => import('../components/NotFound.vue')
+            component: () => import('../views/NotFound.vue')
         }
     ]
 })

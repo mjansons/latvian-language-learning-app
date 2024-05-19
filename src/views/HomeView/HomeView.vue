@@ -20,7 +20,7 @@ import SectionButton from '@/components/SectionButton.vue'
             path="level-1"
         ></SectionButton>
         <SectionButton
-            sectionHeader="Level 1"
+            sectionHeader="Level 2"
             sectionName="Nouns and Articles"
             path="level-2"
         ></SectionButton>
