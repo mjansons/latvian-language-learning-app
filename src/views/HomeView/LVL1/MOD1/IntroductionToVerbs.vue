@@ -53,7 +53,7 @@ onBeforeRouteLeave((to) => {
                 Latvian verbs can be divided into two main groups: regular and irregular verbs.
                 Unlike their irregular counterparts, regular verbs follow a consistent pattern in
                 their conjugation. Latvian regular verbs are further classified into three
-                conjugation groups.
+                conjugation groups, which we will discuss later.
             </p>
             <p>
                 Each conjugation group has specific rules and patterns for conjugating verbs in

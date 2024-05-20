@@ -4,7 +4,7 @@ import ProgressHeader from '@/components/ProgressHeader.vue'
 import { onBeforeRouteLeave } from 'vue-router'
 import { ref, computed } from 'vue'
 
-const LESSON_NAME = 'Introduction to verbs'
+const LESSON_NAME = 'Irregular verbs - Present'
 const LESSON_PARTS = 4
 
 // importing component functions from ProgressHeader
@@ -70,7 +70,7 @@ onBeforeRouteLeave((to) => {
         <div v-if="currentPart === 2">
             <h1>Būt (to be)</h1>
             <p>
-                Tabulā parādīta darbības vārda "būt" tagadnes locījumi Latviešu valodā.
+                The table below shows the verb "būt" conjugations in present tense.
             </p>
             <table>
                 <tr>
@@ -79,11 +79,11 @@ onBeforeRouteLeave((to) => {
                 </tr>
                 <tr>
                     <td>es</td>
-                    <td>esmu</td>
+                    <td>es-mu</td>
                 </tr>
                 <tr>
                     <td>tu</td>
-                    <td>esi</td>
+                    <td>es-i</td>
                 </tr>
                 <tr>
                     <td>viņš, viņa</td>
@@ -95,7 +95,7 @@ onBeforeRouteLeave((to) => {
                 </tr>
                 <tr>
                     <td>jūs</td>
-                    <td>esat</td>
+                    <td>es-at</td>
                 </tr>
                 <tr>
                     <td>viņi, viņas</td>
@@ -106,7 +106,7 @@ onBeforeRouteLeave((to) => {
         <div v-if="currentPart === 3">
             <h1>Dot (to give)</h1>
             <p>
-                Tabulā parādīta darbības vārda "būt" tagadnes locījumi Latviešu valodā.
+                The table below shows the verb "dot" conjugations in present tense.
             </p>
             <table>
                 <tr>
@@ -115,34 +115,34 @@ onBeforeRouteLeave((to) => {
                 </tr>
                 <tr>
                     <td>es</td>
-                    <td>dodu</td>
+                    <td>do-du</td>
                 </tr>
                 <tr>
                     <td>tu</td>
-                    <td>dod</td>
+                    <td>do-d</td>
                 </tr>
                 <tr>
                     <td>viņš, viņa</td>
-                    <td>dod</td>
+                    <td>do-d</td>
                 </tr>
                 <tr>
                     <td>mēs</td>
-                    <td>dodam</td>
+                    <td>do-dam</td>
                 </tr>
                 <tr>
                     <td>jūs</td>
-                    <td>dodat</td>
+                    <td>do-dat</td>
                 </tr>
                 <tr>
                     <td>viņi, viņas</td>
-                    <td>dod</td>
+                    <td>do-d</td>
                 </tr>
             </table>
         </div>
         <div v-if="currentPart === 4">
             <h1>Iet (to go)</h1>
             <p>
-                Tabulā parādīta darbības vārda "iet" tagadnes locījumi Latviešu valodā.
+                The table below shows the verb "iet" conjugations in present tense.
             </p>
             <table>
                 <tr>
@@ -151,11 +151,11 @@ onBeforeRouteLeave((to) => {
                 </tr>
                 <tr>
                     <td>es</td>
-                    <td>eju</td>
+                    <td>e-ju</td>
                 </tr>
                 <tr>
                     <td>tu</td>
-                    <td>ej</td>
+                    <td>e-j</td>
                 </tr>
                 <tr>
                     <td>viņš, viņa</td>
@@ -163,11 +163,11 @@ onBeforeRouteLeave((to) => {
                 </tr>
                 <tr>
                     <td>mēs</td>
-                    <td>ejam</td>
+                    <td>e-jam</td>
                 </tr>
                 <tr>
                     <td>jūs</td>
-                    <td>ejat</td>
+                    <td>e-jat</td>
                 </tr>
                 <tr>
                     <td>viņi, viņas</td>

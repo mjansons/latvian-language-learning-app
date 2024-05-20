@@ -1,0 +1,32 @@
+[
+    {
+        "id": 1,
+        "question": "they will go",
+        "answer": "viņi ies"
+    },
+    {
+        "id": 2,
+        "question": "I will give",
+        "answer": "es došu"
+    },
+    {
+        "id": 3,
+        "question": "He will be",
+        "answer": "viņš būs"
+    },
+    {
+        "id": 4,
+        "question": "You (2nd person) will go",
+        "answer": "tu iesi"
+    },
+    {
+        "id": 5,
+        "question": "You (plural) will be",
+        "answer": "jūs būsit"
+    },
+    {
+        "id": 6,
+        "question": "We will give",
+        "answer": "mēs dosim"
+    }
+]

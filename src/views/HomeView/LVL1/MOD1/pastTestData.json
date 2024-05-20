@@ -1,0 +1,32 @@
+[
+    {
+        "id": 1,
+        "question": "they went",
+        "answer": "viņi gāja"
+    },
+    {
+        "id": 2,
+        "question": "I gave",
+        "answer": "es devu"
+    },
+    {
+        "id": 3,
+        "question": "She was",
+        "answer": "viņa bija"
+    },
+    {
+        "id": 4,
+        "question": "You (2nd person) went",
+        "answer": "tu gāji"
+    },
+    {
+        "id": 5,
+        "question": "You (plural) were",
+        "answer": "jūs bijāt"
+    },
+    {
+        "id": 6,
+        "question": "We gave",
+        "answer": "mēs devām"
+    }
+]

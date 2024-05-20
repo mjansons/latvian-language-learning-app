@@ -11,7 +11,6 @@ const props = defineProps<Props>()
 
 const currentPart: Ref<number> = ref(1)
 
-
 const progress: Ref<number> = ref(100 / props.totalParts)
 
 const viewStore = useViewStore()
@@ -19,8 +18,8 @@ const viewStore = useViewStore()
 const incrementProgress = () => {
     const increment = 100 / props.totalParts
     if (progress.value + increment <= 100) {
-        progress.value += increment
         currentPart.value += 1
+        progress.value += increment
     } else {
         progress.value = 100
     }

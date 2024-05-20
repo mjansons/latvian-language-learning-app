@@ -139,8 +139,18 @@ footer>button:only-child {
   align-items: center;
 }
 
-th, td {
-  border: 1px solid ;
+.final-score {
+  position: absolute;
+  z-index: 2;
+  background-color: rgb(31 31 35);
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+
+th,
+td {
+  border: 1px solid;
   padding: 8px;
   text-align: left;
 }

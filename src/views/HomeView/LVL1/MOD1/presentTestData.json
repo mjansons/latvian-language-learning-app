@@ -1,0 +1,32 @@
+[
+    {
+        "id": 1,
+        "question": "they go",
+        "answer": "viņi iet"
+    },
+    {
+        "id": 2,
+        "question": "I give",
+        "answer": "es dodu"
+    },
+    {
+        "id": 3,
+        "question": "He is",
+        "answer": "viņš ir"
+    },
+    {
+        "id": 4,
+        "question": "You (2nd person) go",
+        "answer": "tu ej"
+    },
+    {
+        "id": 5,
+        "question": "You (plural) are",
+        "answer": "jūs esat"
+    },
+    {
+        "id": 6,
+        "question": "We give",
+        "answer": "mēs dodam"
+    }
+]
