@@ -22,11 +22,13 @@ const testStore = useTestStore()
             sectionHeader="Level 2"
             sectionName="Nouns and Articles"
             path="level-2"
+            disabledPath="testResults.tests.level-1.completed"
         ></SectionButton>
         <SectionButton
             sectionHeader="Level 3"
             sectionName="Pronouns and Determiners"
             path="level-3"
+            disabledPath="testResults.tests.level-2.completed"
         ></SectionButton>
     </nav>
 </template>

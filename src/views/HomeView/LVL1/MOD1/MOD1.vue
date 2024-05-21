@@ -50,36 +50,42 @@ const practiceView: Ref<boolean> = ref(false)
                 lessonName="Irregular verbs - Present"
                 lessonInfo="Irregular verbs in present tense"
                 path="irregular-verbs-present"
+                disabledPath="testResults.tests.level-1.modules.module-1.lessons.introduction-to-verbs.completed"
             ></LessonButton>
             <LessonButton
-                lessonHeader="Test 1"
+                lessonHeader="Test"
                 lessonName="Test - Present"
                 lessonInfo="Test on irregular verbs in Present tense"
                 path="test-present"
+                disabledPath="testResults.tests.level-1.modules.module-1.lessons.irregular-verbs-present.completed"
             ></LessonButton>
             <LessonButton
                 lessonHeader="Lesson 2"
                 lessonName="Irregular verbs - Past"
                 lessonInfo="Irregular verbs in Past tense"
                 path="irregular-verbs-past"
+                disabledPath="testResults.tests.level-1.modules.module-1.lessons.test-present.completed"
             ></LessonButton>
             <LessonButton
-                lessonHeader="Test 2"
+                lessonHeader="Test"
                 lessonName="Test - Past"
                 lessonInfo="Test on irregular verbs in Past tense"
                 path="test-past"
+                disabledPath="testResults.tests.level-1.modules.module-1.lessons.irregular-verbs-past.completed"
             ></LessonButton>
             <LessonButton
                 lessonHeader="Lesson 3"
                 lessonName="Irregular verbs - Future"
                 lessonInfo="Irregular verbs in Future tense"
                 path="irregular-verbs-future"
+                disabledPath="testResults.tests.level-1.modules.module-1.lessons.test-past.completed"
             ></LessonButton>
             <LessonButton
-                lessonHeader="Test 3"
+                lessonHeader="Test"
                 lessonName="Test - Future"
                 lessonInfo="Test on irregular verbs in Future tense"
                 path="test-future"
+                disabledPath="testResults.tests.level-1.modules.module-1.lessons.irregular-verbs-future.completed"
             ></LessonButton>
         </nav>
         <nav class="module-nav" v-if="practiceView">
@@ -88,18 +94,21 @@ const practiceView: Ref<boolean> = ref(false)
                 lessonName="Test - Present"
                 lessonInfo="Test on irregular verbs in Present tense"
                 path="test-present"
+                disabledPath="testResults.tests.level-1.modules.module-1.lessons.irregular-verbs-present.completed"
             ></LessonButton>
             <LessonButton
-                lessonHeader="Test 2"
+                lessonHeader="Test"
                 lessonName="Test - Past"
                 lessonInfo="Test on irregular verbs in Past tense"
                 path="test-past"
+                disabledPath="testResults.tests.level-1.modules.module-1.lessons.irregular-verbs-past.completed"
             ></LessonButton>
             <LessonButton
-                lessonHeader="Test 3"
+                lessonHeader="Test"
                 lessonName="Test - Future"
                 lessonInfo="Test on irregular verbs in Future tense"
                 path="test-future"
+                disabledPath="testResults.tests.level-1.modules.module-1.lessons.irregular-verbs-future.completed"
             ></LessonButton>
         </nav>
     </div>

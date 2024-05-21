@@ -1,16 +1,29 @@
 <script setup lang="ts">
+import useTestStore from '@/stores/TestStore'
+
 interface Props {
     sectionHeader: string
     sectionName: string
     path: string
+    disabledPath?: string
 }
 
+const testStore = useTestStore()
+
 const props = defineProps<Props>()
+
+function getValueByPath(obj: Record<string, any>, path: string): any {
+    return path.split('.').reduce((o, p) => (o || {})[p], obj)
+}
 </script>
 
 <template>
     <RouterLink :to="{ name: props.path }" tabindex="-1">
-        <button type="button" class="btn-2">
+        <button
+            type="button"
+            class="btn-2"
+            :disabled="!!(props.disabledPath && getValueByPath(testStore, props.disabledPath) === false)"
+        >
             <div class="info-container">
                 <div class="button-header">
                     <img src="@/assets/icons/star.svg" alt="introduction to verbs" />
@@ -34,6 +47,10 @@ button {
     padding: 16px;
     border-radius: 16px;
     border: 0.5px solid rgb(255, 255, 255);
+}
+
+button:disabled{
+    background-color: rgba(226, 133, 133, 0.362);
 }
 
 .info-container {
