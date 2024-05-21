@@ -23,67 +23,67 @@ const router = createRouter({
         {
             path: '/level-1',
             name: 'level-1',
-            component: () => import('@/views/HomeView/LVL1/LVL1.vue')
+            component: () => import('@/views/HomeView/Lvl1/Lvl1.vue')
         },
     // Module 1
         {
             path: '/level-1/module-1',
             name: 'module-1',
-            component: () => import('@/views/HomeView/LVL1/MOD1/MOD1.vue')
+            component: () => import('@/views/HomeView/Lvl1/Mod1/Mod1.vue')
         },
         {
             path: '/level-1/module-1/introduction-to-verbs',
             name: 'introduction-to-verbs',
-            component: () => import('@/views/HomeView/LVL1/MOD1/IntroductionToVerbs.vue')
+            component: () => import('@/views/HomeView/Lvl1/Mod1/IntroductionToVerbs.vue')
         },
         {
             path: '/level-1/module-1/irregular-verbs-present',
             name: 'irregular-verbs-present',
-            component: () => import('@/views/HomeView/LVL1/MOD1/IrregularVerbsPresent.vue')
+            component: () => import('@/views/HomeView/Lvl1/Mod1/IrregularVerbsPresent.vue')
         },
         {
             path: '/level-1/module-1/test-present',
             name: 'test-present',
-            component: () => import('@/views/HomeView/LVL1/MOD1/TestPresent.vue')
+            component: () => import('@/views/HomeView/Lvl1/Mod1/GrammarTests/TestPresent.vue')
         },
         {
             path: '/level-1/module-1/irregular-verbs-past',
             name: 'irregular-verbs-past',
-            component: () => import('@/views/HomeView/LVL1/MOD1/IrregularVerbsPast.vue')
+            component: () => import('@/views/HomeView/Lvl1/Mod1/IrregularVerbsPast.vue')
         },
         {
             path: '/level-1/module-1/test-past',
             name: 'test-past',
-            component: () => import('@/views/HomeView/LVL1/MOD1/TestPast.vue')
+            component: () => import('@/views/HomeView/Lvl1/Mod1/GrammarTests/TestPast.vue')
         },
         {
             path: '/level-1/module-1/irregular-verbs-future',
             name: 'irregular-verbs-future',
-            component: () => import('@/views/HomeView/LVL1/MOD1/IrregularVerbsFuture.vue')
+            component: () => import('@/views/HomeView/Lvl1/Mod1/IrregularVerbsFuture.vue')
         },
         {
             path: '/level-1/module-1/test-future',
             name: 'test-future',
-            component: () => import('@/views/HomeView/LVL1/MOD1/TestFuture.vue')
+            component: () => import('@/views/HomeView/Lvl1/Mod1/GrammarTests/TestFuture.vue')
         },
     // Module 2
         {
             path: '/level-1/module-2',
             name: 'module-2',
-            component: () => import('@/views/HomeView/LVL1/MOD2/MOD2.vue')
+            component: () => import('@/views/HomeView/Lvl1/Mod2/Mod2.vue')
         },
 
 // Level 2
         {
             path: '/level-2',
             name: 'level-2',
-            component: () => import('@/views/HomeView/LVL2/LVL2.vue')
+            component: () => import('@/views/HomeView/Lvl2/Lvl2.vue')
         },
 // Level 3
         {
             path: '/level-3',
             name: 'level-3',
-            component: () => import('@/views/HomeView/LVL3/LVL3.vue')
+            component: () => import('@/views/HomeView/Lvl3/Lvl3.vue')
         },
         {
             path: '/paywall',

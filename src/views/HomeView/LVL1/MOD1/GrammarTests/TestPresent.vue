@@ -6,7 +6,7 @@ import useViewStore from '@/stores/ViewStore'
 import useTestStore from '@/stores/TestStore'
 import TestTranslate from '@/components/TestTranslate.vue'
 import type { Ref } from 'vue'
-import presentTestData from '@/views/HomeView/LVL1/MOD1/presentTestData.json'
+import presentTestData from '@/views/HomeView/LVL1/MOD1/GrammarTests/presentTestData.json'
 
 const viewStore = useViewStore()
 const testStore = useTestStore()
