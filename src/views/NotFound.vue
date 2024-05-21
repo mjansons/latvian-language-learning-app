@@ -1,5 +1,5 @@
 <script setup>
-import { RouterLink,  } from 'vue-router';
+import { RouterLink, } from 'vue-router';
 
 // onBeforeRouteLeave
 // import { useViewStore } from '../stores/viewStore';
@@ -12,6 +12,7 @@ import { RouterLink,  } from 'vue-router';
 // onBeforeRouteLeave(() => {
 //     viewStore.toggleNavPanel();
 // });
+//
 </script>
 
 <template>
