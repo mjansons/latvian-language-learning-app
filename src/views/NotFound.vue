@@ -13,6 +13,7 @@ import { RouterLink, } from 'vue-router';
 //     viewStore.toggleNavPanel();
 // });
 //
+//
 </script>
 
 <template>
