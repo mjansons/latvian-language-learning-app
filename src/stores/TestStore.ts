@@ -3,26 +3,26 @@ import { setError } from '@/stores/error'
 import { reactive } from 'vue'
 
 interface Lesson {
-    name: string
     completed: boolean
 }
 
 interface Module {
-    name: string
     completed: boolean
-    lessons: Lesson[]
+    lessons: Record<string, Lesson>
 }
 
 interface Level {
-    name: string
     completed: boolean
-    modules: Module[]
+    modules: Record<string, Module>
 }
 
 interface TestTree {
     lastVisitdate: string
     streak: number
-    tests: Level[]
+    answeredQuestions: number
+    correctQuestions: number
+    testsCompleted: number
+    tests: Record<string, Level>
 }
 
 const useTestStore = defineStore('test', () => {
@@ -32,47 +32,50 @@ const useTestStore = defineStore('test', () => {
     const testResults: TestTree = reactive({
         lastVisitdate: todaysDateString,
         streak: 0,
-        tests: [
-            {
-                name: 'Level 1',
+        answeredQuestions: 0,
+        correctQuestions: 0,
+        testsCompleted: 0,
+        tests: {
+            'level-1': {
                 completed: false,
-                modules: [
-                    {
-                        name: 'Module 1',
+                modules: {
+                    'module-1': {
                         completed: false,
-                        lessons: [
-                            { name: 'Lesson 1', completed: false },
-                            { name: 'Lesson 2', completed: false }
-                        ]
+                        lessons: {
+                            'introduction-to-verbs': { completed: false },
+                            'irregular-verbs-present': { completed: false },
+                            'irregular-verbs-past': { completed: false },
+                            'irregular-verbs-future': { completed: false },
+                            'test-present': { completed: false },
+                            'test-past': { completed: false },
+                            'test-future': { completed: false }
+                        }
                     },
-                    {
-                        name: 'Module 2',
+                    'module-2': {
                         completed: false,
-                        lessons: [
-                            { name: 'Lesson 1', completed: false },
-                            { name: 'Lesson 2', completed: false }
-                        ]
+                        lessons: {
+                            'lesson-1': { completed: false },
+                            'lesson-2': { completed: false }
+                        }
                     }
-                ]
+                }
             },
-            {
-                name: 'Level 2',
+            'level-2': {
                 completed: false,
-                modules: [
-                    {
-                        name: 'Module 1',
+                modules: {
+                    'module-1': {
                         completed: false,
-                        lessons: [
-                            { name: 'Lesson 1', completed: false },
-                            { name: 'Lesson 2', completed: false }
-                        ]
+                        lessons: {
+                            'lesson-1': { completed: false },
+                            'lesson-2': { completed: false }
+                        }
                     }
-                ]
+                }
             }
-        ]
+        }
     })
 
-    function setTestResults() {
+    function setTestResults(): void {
         try {
             localStorage.setItem(TEST_KEY, JSON.stringify(testResults))
             // throw new Error();
@@ -81,7 +84,7 @@ const useTestStore = defineStore('test', () => {
         }
     }
 
-    function getTestResults() {
+    function getTestResults(): void {
         const resultsStored = localStorage.getItem(TEST_KEY)
         if (resultsStored) {
             const parsedResults = JSON.parse(resultsStored)
@@ -91,12 +94,33 @@ const useTestStore = defineStore('test', () => {
         }
     }
 
-    // const mainNavVisible: Ref<boolean> = ref(true)
-    // const hintsVisible: Ref<boolean> = ref(true)
+    function updateStreak(): void {
+        const today = new Date()
+        const todayString = today.toISOString().split('T')[0]
+        const lastVisitDate = testResults.lastVisitdate
 
-    return { testResults, setTestResults, getTestResults, todaysDateString }
+        if (lastVisitDate === todayString && testResults.streak === 0) {
+            testResults.streak++
+        }
+        if (lastVisitDate === todayString){
+            return
+        }
+
+        const lastVisit = new Date(lastVisitDate)
+        const oneDay = 24 * 60 * 60 * 1000
+        const diffTime = today.getTime() - lastVisit.getTime()
+        const diffDays = Math.floor(diffTime / oneDay)
+
+        if (diffDays === 1) {
+            testResults.streak++
+        } else if (diffDays > 1) {
+            testResults.streak = 1
+        }
+
+        testResults.lastVisitdate = todayString
+    }
+
+    return { testResults, setTestResults, getTestResults, todaysDateString, updateStreak }
 })
 
 export default useTestStore
-
-// toTranslate="I go" correctAnswer="Es eju"

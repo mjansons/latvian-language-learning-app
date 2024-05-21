@@ -4,8 +4,10 @@ import type { Ref } from 'vue'
 import { onBeforeRouteLeave } from 'vue-router'
 import useViewStore from '@/stores/ViewStore'
 import LessonButton from '@/components/LessonButton.vue'
+import useTestStore from '@/stores/TestStore'
 
 const viewStore = useViewStore()
+const testStore = useTestStore()
 
 onBeforeRouteLeave((to) => {
     const toPath = to.path
@@ -27,7 +29,7 @@ const practiceView: Ref<boolean> = ref(false)
             <h1>Irregular Verbs</h1>
             <div class="streak">
                 <img src="@/assets/icons/energy-bolt.svg" alt="day streak" />
-                <div>0</div>
+                <div>{{ testStore.testResults.streak }}</div>
             </div>
         </header>
         <label class="toggle">

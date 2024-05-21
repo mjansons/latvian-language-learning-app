@@ -4,7 +4,6 @@ import ErrorToast from './components/ErrorToast.vue'
 import useViewStore from './stores/ViewStore'
 
 const viewStore = useViewStore()
-
 </script>
 
 <template>

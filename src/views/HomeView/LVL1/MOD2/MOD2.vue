@@ -1,4 +1,9 @@
-<script setup lang="ts"></script>
+<script setup lang="ts">
+import useTestStore from '@/stores/TestStore'
+
+const testStore = useTestStore()
+</script>
+
 <template>
     <header>
         <RouterLink :to="{ name: 'level-1' }">
@@ -7,7 +12,7 @@
         <h1>Regular Verbs</h1>
         <div class="streak">
             <img src="@/assets/icons/energy-bolt.svg" alt="day streak" />
-            <div>0</div>
+            <div>{{ testStore.testResults.streak }}</div>
         </div>
     </header>
 </template>

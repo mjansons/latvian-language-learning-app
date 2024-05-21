@@ -1,5 +1,8 @@
 <script setup lang="ts">
 import SectionButton from '@/components/SectionButton.vue'
+import useTestStore from '@/stores/TestStore'
+
+const testStore = useTestStore()
 </script>
 
 <template>
@@ -11,14 +14,10 @@ import SectionButton from '@/components/SectionButton.vue'
             </div>
             <div class="streak">
                 <img src="@/assets/icons/energy-bolt.svg" alt="day streak" />
-                <div>0</div>
+                <div>{{ testStore.testResults.streak }}</div>
             </div>
         </header>
-        <SectionButton
-            sectionHeader="Level 1"
-            sectionName="Verbs"
-            path="level-1"
-        ></SectionButton>
+        <SectionButton sectionHeader="Level 1" sectionName="Verbs" path="level-1"></SectionButton>
         <SectionButton
             sectionHeader="Level 2"
             sectionName="Nouns and Articles"

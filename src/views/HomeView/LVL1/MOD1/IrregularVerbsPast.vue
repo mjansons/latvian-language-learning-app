@@ -1,5 +1,6 @@
 <script setup lang="ts">
 import useViewStore from '@/stores/ViewStore'
+import useTestStore from '@/stores/TestStore'
 import ProgressHeader from '@/components/ProgressHeader.vue'
 import { onBeforeRouteLeave } from 'vue-router'
 import { ref, computed } from 'vue'
@@ -16,6 +17,7 @@ const currentPart = computed(() => {
 })
 
 const viewStore = useViewStore()
+const testStore = useTestStore()
 
 onBeforeRouteLeave((to) => {
     const toPath = to.path
@@ -24,6 +26,16 @@ onBeforeRouteLeave((to) => {
         viewStore.mainNavVisible = true
     }
 })
+function updateAllData() {
+    testStore.updateStreak()
+    testStore.testResults
+        .tests['level-1']
+        .modules['module-1']
+        .lessons['irregular-verbs-past']
+        .completed = true
+
+    testStore.setTestResults()
+}
 </script>
 <template>
     <ProgressHeader :headerName="LESSON_NAME" :totalParts="LESSON_PARTS" ref="child" />
@@ -35,7 +47,7 @@ onBeforeRouteLeave((to) => {
             </p>
             <table>
                 <tr>
-                    <th>Person</th>
+                    <th>Pronoun</th>
                     <th>Past tense</th>
                 </tr>
                 <tr>
@@ -71,7 +83,7 @@ onBeforeRouteLeave((to) => {
             </p>
             <table>
                 <tr>
-                    <th>Person</th>
+                    <th>Pronoun</th>
                     <th>Past tense</th>
                 </tr>
                 <tr>
@@ -107,7 +119,7 @@ onBeforeRouteLeave((to) => {
             </p>
             <table>
                 <tr>
-                    <th>Person</th>
+                    <th>Pronoun</th>
                     <th>Present tense</th>
                 </tr>
                 <tr>
@@ -153,7 +165,7 @@ onBeforeRouteLeave((to) => {
         </button>
 
         <RouterLink v-if="currentPart === LESSON_PARTS" :to="{ name: 'module-1' }" tabindex="-1">
-            <button type="button" class="btn-next">Finish</button>
+            <button type="button" class="btn-next" @click="updateAllData">Finish</button>
         </RouterLink>
     </footer>
 </template>

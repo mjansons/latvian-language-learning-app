@@ -1,5 +1,8 @@
 <script setup lang="ts">
 import SectionButton from '@/components/SectionButton.vue'
+import useTestStore from '@/stores/TestStore'
+
+const testStore = useTestStore()
 </script>
 <template>
     <nav>
@@ -10,7 +13,7 @@ import SectionButton from '@/components/SectionButton.vue'
             <h1>Level 1</h1>
             <div class="streak">
                 <img src="@/assets/icons/energy-bolt.svg" alt="day streak" />
-                <div>0</div>
+                <div>{{ testStore.testResults.streak }}</div>
             </div>
         </header>
         <SectionButton

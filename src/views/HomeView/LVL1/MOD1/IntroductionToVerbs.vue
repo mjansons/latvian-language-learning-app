@@ -1,5 +1,6 @@
 <script setup lang="ts">
 import useViewStore from '@/stores/ViewStore'
+import useTestStore from '@/stores/TestStore'
 import ProgressHeader from '@/components/ProgressHeader.vue'
 import { onBeforeRouteLeave } from 'vue-router'
 import { ref, computed } from 'vue'
@@ -16,6 +17,7 @@ const currentPart = computed(() => {
 })
 
 const viewStore = useViewStore()
+const testStore = useTestStore()
 
 onBeforeRouteLeave((to) => {
     const toPath = to.path
@@ -24,6 +26,17 @@ onBeforeRouteLeave((to) => {
         viewStore.mainNavVisible = true
     }
 })
+
+function updateAllData() {
+    testStore.updateStreak()
+    testStore.testResults
+        .tests['level-1']
+        .modules['module-1']
+        .lessons['introduction-to-verbs']
+        .completed = true
+
+    testStore.setTestResults()
+}
 </script>
 <template>
     <ProgressHeader :headerName="LESSON_NAME" :totalParts="LESSON_PARTS" ref="child" />
@@ -59,6 +72,37 @@ onBeforeRouteLeave((to) => {
                 Each conjugation group has specific rules and patterns for conjugating verbs in
                 various tenses and moods.
             </p>
+            <p>The pronouns translate as follows:</p>
+            <table>
+                <tr>
+                    <th>Pronoun</th>
+                    <th>Vietniekvārds</th>
+                </tr>
+                <tr>
+                    <td>I</td>
+                    <td>es</td>
+                </tr>
+                <tr>
+                    <td>you</td>
+                    <td>tu</td>
+                </tr>
+                <tr>
+                    <td>he, she</td>
+                    <td>viņš, viņa</td>
+                </tr>
+                <tr>
+                    <td>we</td>
+                    <td>mēs</td>
+                </tr>
+                <tr>
+                    <td>you (pl.)</td>
+                    <td>jūs</td>
+                </tr>
+                <tr>
+                    <td>they(m., f.)</td>
+                    <td>viņi, viņas</td>
+                </tr>
+            </table>
         </div>
     </main>
 
@@ -77,7 +121,7 @@ onBeforeRouteLeave((to) => {
         </button>
 
         <RouterLink v-if="currentPart === LESSON_PARTS" :to="{ name: 'module-1' }" tabindex="-1">
-            <button type="button" class="btn-next">Finish</button>
+            <button type="button" class="btn-next" @click="updateAllData">Finish</button>
         </RouterLink>
     </footer>
 </template>

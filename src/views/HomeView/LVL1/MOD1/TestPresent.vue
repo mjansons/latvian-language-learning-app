@@ -3,11 +3,13 @@ import ProgressHeader from '@/components/ProgressHeader.vue'
 import { onBeforeRouteLeave } from 'vue-router'
 import { ref } from 'vue'
 import useViewStore from '@/stores/ViewStore'
+import useTestStore from '@/stores/TestStore'
 import TestTranslate from '@/components/TestTranslate.vue'
 import type { Ref } from 'vue'
 import presentTestData from '@/views/HomeView/LVL1/MOD1/presentTestData.json'
 
 const viewStore = useViewStore()
+const testStore = useTestStore()
 
 onBeforeRouteLeave((to) => {
     const toPath = to.path
@@ -41,6 +43,20 @@ function handleResult(isOver: boolean): void {
     }
     incrementProgress()
 }
+
+function updateAllData() {
+    testStore.updateStreak()
+    testStore.testResults
+        .tests['level-1']
+        .modules['module-1']
+        .lessons['test-present']
+        .completed = true
+
+    testStore.testResults.testsCompleted++
+    testStore.testResults.answeredQuestions += TEST_PARTS
+    testStore.testResults.correctQuestions += finalResult.value
+    testStore.setTestResults()
+}
 </script>
 
 <template>
@@ -54,32 +70,46 @@ function handleResult(isOver: boolean): void {
         >
             <table>
                 <tr>
-                    <th>Person</th>
-                    <th>Present tense</th>
+                    <th>Vietniekvārds</th>
+                    <th>Iet</th>
+                    <th>Būt</th>
+                    <th>Dot</th>
                 </tr>
                 <tr>
                     <td>es</td>
-                    <td>e-ju</td>
+                    <td>eju</td>
+                    <td>esmu</td>
+                    <td>dodu</td>
                 </tr>
                 <tr>
                     <td>tu</td>
-                    <td>e-j</td>
+                    <td>ej</td>
+                    <td>esi</td>
+                    <td>dod</td>
                 </tr>
                 <tr>
                     <td>viņš, viņa</td>
                     <td>iet</td>
+                    <td>ir</td>
+                    <td>dod</td>
                 </tr>
                 <tr>
                     <td>mēs</td>
-                    <td>e-jam</td>
+                    <td>ejam</td>
+                    <td>esam</td>
+                    <td>dodam</td>
                 </tr>
                 <tr>
                     <td>jūs</td>
-                    <td>e-jat</td>
+                    <td>ejat</td>
+                    <td>esat</td>
+                    <td>dodat</td>
                 </tr>
                 <tr>
                     <td>viņi, viņas</td>
                     <td>iet</td>
+                    <td>ir</td>
+                    <td>dod</td>
                 </tr>
             </table>
         </TestTranslate>
@@ -88,10 +118,9 @@ function handleResult(isOver: boolean): void {
         <h1>Test is over</h1>
         <p>Your final score: {{ finalResult }}/{{ TEST_PARTS }}</p>
         <RouterLink :to="{ name: 'module-1' }" tabindex="-1">
-            <button type="button">Return</button>
+            <button type="button" @click="updateAllData">Return</button>
         </RouterLink>
     </div>
 </template>
 
-<style scoped>
-</style>
+<style scoped></style>
