@@ -19,13 +19,13 @@ const router = createRouter({
             name: 'settings',
             component: () => import('../views/SettingsView.vue')
         },
-// Level 1
+        // Level 1
         {
             path: '/level-1',
             name: 'level-1',
             component: () => import('@/views/HomeView/Lvl1/Lvl1.vue')
         },
-    // Module 1
+        // Level 1 - Module 1
         {
             path: '/level-1/module-1',
             name: 'module-1',
@@ -66,20 +66,20 @@ const router = createRouter({
             name: 'test-future',
             component: () => import('@/views/HomeView/Lvl1/Mod1/GrammarTests/TestFuture.vue')
         },
-    // Module 2
+        // Level 1 - Module 2
         {
             path: '/level-1/module-2',
             name: 'module-2',
             component: () => import('@/views/HomeView/Lvl1/Mod2/Mod2.vue')
         },
 
-// Level 2
+        // Level 2
         {
             path: '/level-2',
             name: 'level-2',
             component: () => import('@/views/HomeView/Lvl2/Lvl2.vue')
         },
-// Level 3
+        // Level 3
         {
             path: '/level-3',
             name: 'level-3',
