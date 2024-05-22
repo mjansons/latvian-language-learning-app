@@ -68,7 +68,7 @@ function updateAllData() {
             :correctAnswer="item.answer"
             @isOver="handleResult"
         >
-            <table>
+            <table class="four-column-table">
                 <tr>
                     <th>Vietniekvārds</th>
                     <th>Iet</th>

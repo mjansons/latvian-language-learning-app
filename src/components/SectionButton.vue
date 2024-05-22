@@ -21,7 +21,6 @@ function getValueByPath(obj: Record<string, any>, path: string): any {
     <RouterLink :to="{ name: props.path }" tabindex="-1">
         <button
             type="button"
-            class="btn-2"
             :disabled="!!(props.disabledPath && getValueByPath(testStore, props.disabledPath) === false)"
         >
             <div class="info-container">
@@ -42,11 +41,13 @@ button {
     cursor: pointer;
     display: flex;
     flex-direction: row;
+    flex-grow: 1;
     justify-content: space-between;
     align-items: center;
     padding: 16px;
     border-radius: 16px;
     border: 0.5px solid rgb(255, 255, 255);
+    background-color: rgb(68, 68, 81);
 }
 
 button:disabled{
@@ -61,6 +62,9 @@ button:disabled{
 }
 a {
     text-decoration: none;
+    display: flex;
+    flex-grow: 1;
+    width: 100%;
 }
 h2,
 h4 {

@@ -10,7 +10,7 @@ const testStore = useTestStore()
 const practiceView: Ref<boolean> = ref(false)
 </script>
 <template>
-    <nav>
+    <div class="level-view-wrapper">
         <header>
             <RouterLink :to="{ name: 'home' }">
                 <img src="@/assets/icons/arrow-left-white.svg" alt="back button" />
@@ -27,7 +27,7 @@ const practiceView: Ref<boolean> = ref(false)
             <span class="label-left">Learn</span>
             <span class="label-right">Practice</span>
         </label>
-        <div v-if="!practiceView" class="module-nav">
+        <div v-if="!practiceView" class="lesson-wrapper">
             <SectionButton
                 sectionHeader="Module 1"
                 sectionName="Irregular Verbs"
@@ -40,7 +40,7 @@ const practiceView: Ref<boolean> = ref(false)
                 disabledPath="testResults.tests.level-1.modules.module-1.completed"
             ></SectionButton>
         </div>
-        <div v-if="practiceView" class="module-nav">
+        <div v-if="practiceView" class="lesson-wrapper">
             <LessonButton
                 lessonHeader="Test"
                 lessonName="Test - Present"
@@ -63,58 +63,24 @@ const practiceView: Ref<boolean> = ref(false)
                 disabledPath="testResults.tests.level-1.modules.module-1.lessons.irregular-verbs-future.completed"
             ></LessonButton>
         </div>
-    </nav>
+    </div>
 </template>
 
 <style scoped>
-nav {
+.level-view-wrapper {
     display: flex;
+    flex-grow: 1;
+    padding: 32px 16px 0px 16px;
     flex-direction: column;
+    overflow: hidden;
 }
-.toggle {
-    cursor: pointer;
-    position: relative;
-    display: flex;
-    flex-wrap: nowrap;
+header {
+    flex-direction: row;
+    justify-content: space-between;
     align-items: center;
-    background-color: #353142;
-    border-radius: 8px;
 }
 
-.toggle input {
-    display: none;
-}
-
-.slider {
-    position: absolute;
-    width: 50%;
-    height: 100%;
-    transition: transform 0.5s ease-in-out;
-}
-
-.slider:before {
-    border-radius: 8px;
-    content: '';
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    background-color: rgb(57, 84, 74);
-}
-
-.toggle input:checked + .slider {
-    transform: translateX(100%);
-}
-
-.label-left,
-.label-right {
-    margin: 8px;
-    display: flex;
-    justify-content: space-around;
-    align-items: center;
-    color: rgb(251, 251, 251);
-    width: 50%;
-    z-index: 2;
+.lesson-wrapper {
+    overflow: scroll;
 }
 </style>

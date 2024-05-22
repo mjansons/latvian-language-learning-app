@@ -56,6 +56,9 @@ defineExpose({
 <style scoped>
 header {
     position: relative;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
 }
 header::after {
     content: '';
@@ -64,7 +67,7 @@ header::after {
     height: 3px;
     width: var(--progress-width);
     left: 0px;
-    bottom: 1px;
+    bottom: -32px;
     transition: 0.3s ease-in-out;
 }
 </style>
