@@ -57,8 +57,8 @@ nav {
 @media only screen and (min-width: 800px) {
     .main-view-wrapper {
         padding-top: 32px;
-        padding-right: 0px;
-        padding-left: 32px;
+        padding-right: 16px;
+        padding-left: 16px;
     }
 }
 </style>
