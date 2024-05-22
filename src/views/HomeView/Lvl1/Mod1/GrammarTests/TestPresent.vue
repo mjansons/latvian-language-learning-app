@@ -46,11 +46,8 @@ function handleResult(isOver: boolean): void {
 
 function updateAllData() {
     testStore.updateStreak()
-    testStore.testResults
-        .tests['level-1']
-        .modules['module-1']
-        .lessons['test-present']
-        .completed = true
+    testStore.testResults.tests['level-1'].modules['module-1'].lessons['test-present'].completed =
+        true
 
     testStore.testResults.testsCompleted++
     testStore.testResults.answeredQuestions += TEST_PARTS
