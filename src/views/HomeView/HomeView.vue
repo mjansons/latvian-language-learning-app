@@ -15,7 +15,7 @@ const testStore = useTestStore()
                         <div>{{ testStore.testResults.streak }}</div>
                     </div>
                 </div>
-                <p>Pick up where you feel comfortable!</p>
+                <p>Happy learning!</p>
             </header>
         <nav>
             <div class="lesson-wrapper">

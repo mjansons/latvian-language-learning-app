@@ -48,7 +48,7 @@ defineExpose({
         </RouterLink>
         <h1>{{ props.headerName }}</h1>
         <RouterLink :to="{ name: 'settings' }" @click="viewStore.mainNavVisible = true">
-            <img src="@/assets/icons/sprocket-2.svg" alt="settings" />
+            <img src="@/assets/icons/sprocket-1.svg" alt="settings" />
         </RouterLink>
     </header>
 </template>

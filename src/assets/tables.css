@@ -1,0 +1,62 @@
+@import url('/src/assets/main.css');
+
+/* The styling of 2 column tables */
+table {
+    border-collapse: separate;
+    border-spacing: 0;
+    overflow: hidden;
+}
+
+th {
+    background-color: #3a3a3a;
+    color: #FFF;
+}
+
+th,
+td {
+    padding: 12px 40px 12px 16px;
+    text-align: left;
+}
+
+td:nth-child(even),
+th:nth-child(even) {
+    border-right: 0.5px solid rgb(86 86 86);
+    border-bottom: 0.5px solid rgb(86 86 86);
+}
+
+td:nth-child(odd),
+th:nth-child(odd) {
+    border-left: 0.5px solid rgb(86 86 86);
+    border-bottom: 0.5px solid rgb(86 86 86);
+}
+
+/* four-column-table class exception */
+.four-column-table td:nth-child(2),
+.four-column-table th:nth-child(2) {
+    border-right: none;
+    border-bottom: 0.5px solid rgb(86 86 86);
+}
+
+.four-column-table td:nth-child(3),
+.four-column-table th:nth-child(3) {
+    border-left: none;
+    border-bottom: 0.5px solid rgb(86 86 86);
+}
+
+/* the end of the four-column-table class exception */
+
+tr:first-child th:first-child {
+    border-top-left-radius: 12px;
+}
+
+tr:first-child th:last-child {
+    border-top-right-radius: 12px;
+}
+
+tr:last-child td:first-child {
+    border-bottom-left-radius: 12px;
+}
+
+tr:last-child td:last-child {
+    border-bottom-right-radius: 12px;
+}

@@ -57,66 +57,68 @@ function updateAllData() {
 </script>
 
 <template>
-    <ProgressHeader :headerName="TEST_NAME" :totalParts="TEST_PARTS" ref="child" />
-    <template v-for="item in presentTestData" :key="item.id">
-        <TestTranslate
-            v-if="item.id === currentPart"
-            :toTranslate="item.question"
-            :correctAnswer="item.answer"
-            @isOver="handleResult"
-        >
-            <table class="four-column-table">
-                <tr>
-                    <th>Vietniekvārds</th>
-                    <th>Iet</th>
-                    <th>Būt</th>
-                    <th>Dot</th>
-                </tr>
-                <tr>
-                    <td>es</td>
-                    <td>eju</td>
-                    <td>esmu</td>
-                    <td>dodu</td>
-                </tr>
-                <tr>
-                    <td>tu</td>
-                    <td>ej</td>
-                    <td>esi</td>
-                    <td>dod</td>
-                </tr>
-                <tr>
-                    <td>viņš, viņa</td>
-                    <td>iet</td>
-                    <td>ir</td>
-                    <td>dod</td>
-                </tr>
-                <tr>
-                    <td>mēs</td>
-                    <td>ejam</td>
-                    <td>esam</td>
-                    <td>dodam</td>
-                </tr>
-                <tr>
-                    <td>jūs</td>
-                    <td>ejat</td>
-                    <td>esat</td>
-                    <td>dodat</td>
-                </tr>
-                <tr>
-                    <td>viņi, viņas</td>
-                    <td>iet</td>
-                    <td>ir</td>
-                    <td>dod</td>
-                </tr>
-            </table>
-        </TestTranslate>
-    </template>
-    <div v-if="testResultVisible" class="final-score">
-        <h1>Test is over</h1>
-        <p>Your final score: {{ finalResult }}/{{ TEST_PARTS }}</p>
-        <RouterLink :to="{ name: 'module-1' }" tabindex="-1">
-            <button type="button" @click="updateAllData">Return</button>
-        </RouterLink>
+    <div class="lesson-view-wrapper">
+        <ProgressHeader :headerName="TEST_NAME" :totalParts="TEST_PARTS" ref="child" />
+        <template v-for="item in presentTestData" :key="item.id">
+            <TestTranslate
+                v-if="item.id === currentPart"
+                :toTranslate="item.question"
+                :correctAnswer="item.answer"
+                @isOver="handleResult"
+            >
+                <table class="four-column-table">
+                    <tr>
+                        <th>Vietniekvārds</th>
+                        <th>Iet</th>
+                        <th>Būt</th>
+                        <th>Dot</th>
+                    </tr>
+                    <tr>
+                        <td>es</td>
+                        <td>eju</td>
+                        <td>esmu</td>
+                        <td>dodu</td>
+                    </tr>
+                    <tr>
+                        <td>tu</td>
+                        <td>ej</td>
+                        <td>esi</td>
+                        <td>dod</td>
+                    </tr>
+                    <tr>
+                        <td>viņš, viņa</td>
+                        <td>iet</td>
+                        <td>ir</td>
+                        <td>dod</td>
+                    </tr>
+                    <tr>
+                        <td>mēs</td>
+                        <td>ejam</td>
+                        <td>esam</td>
+                        <td>dodam</td>
+                    </tr>
+                    <tr>
+                        <td>jūs</td>
+                        <td>ejat</td>
+                        <td>esat</td>
+                        <td>dodat</td>
+                    </tr>
+                    <tr>
+                        <td>viņi, viņas</td>
+                        <td>iet</td>
+                        <td>ir</td>
+                        <td>dod</td>
+                    </tr>
+                </table>
+            </TestTranslate>
+        </template>
+        <div v-if="testResultVisible" class="final-score">
+            <h1>Test is over</h1>
+            <p>Your final score: {{ finalResult }}/{{ TEST_PARTS }}</p>
+            <RouterLink :to="{ name: 'module-1' }" tabindex="-1">
+                <button type="button" @click="updateAllData">Return</button>
+            </RouterLink>
+        </div>
     </div>
 </template>
 

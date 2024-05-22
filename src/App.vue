@@ -85,11 +85,6 @@ button:active {
     border-color: var(--purple-400);
 }
 
-button:disabled {
-    cursor: not-allowed;
-    opacity: 20%;
-}
-
 @media only screen and (min-width: 800px) {
     nav {
         flex-grow: 1;
