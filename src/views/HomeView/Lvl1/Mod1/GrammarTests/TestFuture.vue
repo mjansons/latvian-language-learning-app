@@ -46,15 +46,9 @@ function handleResult(isOver: boolean): void {
 
 function updateAllData() {
     testStore.updateStreak()
-    testStore.testResults
-        .tests['level-1']
-        .modules['module-1']
-        .lessons['test-future']
-        .completed = true
-    testStore.testResults
-        .tests['level-1']
-        .modules['module-1']
-        .completed = true
+    testStore.testResults.tests['level-1'].modules['module-1'].lessons['test-future'].completed =
+        true
+    testStore.testResults.tests['level-1'].modules['module-1'].completed = true
 
     testStore.testResults.testsCompleted++
     testStore.testResults.answeredQuestions += TEST_PARTS
@@ -74,7 +68,7 @@ function updateAllData() {
                 :correctAnswer="item.answer"
                 @isOver="handleResult"
             >
-                <table>
+                <table class="four-column-table">
                     <tr>
                         <th>Vietniekvārds</th>
                         <th>Iet</th>
@@ -139,7 +133,7 @@ function updateAllData() {
     position: fixed;
     width: 100vw;
     height: 100vh;
-    background-color: rgba(53, 53, 56, 0.9);
+    background-color: var(--black-a90);
     display: flex;
     flex-direction: column;
     justify-content: center;
@@ -149,7 +143,7 @@ function updateAllData() {
 }
 
 .final-score-content {
-    background-color: rgb(14, 14, 16);
+    background-color: var(--black-100);
     padding: 32px;
     border-radius: 16px;
     overflow: auto;
@@ -166,6 +160,5 @@ function updateAllData() {
     p {
         margin: 8px 0;
     }
-
 }
 </style>

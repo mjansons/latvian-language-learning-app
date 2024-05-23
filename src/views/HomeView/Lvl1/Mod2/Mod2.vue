@@ -23,7 +23,7 @@ onBeforeRouteLeave((to) => {
                 <img src="@/assets/icons/arrow-left-white.svg" alt="back button" />
             </RouterLink>
             <h1>Regular Verbs</h1>
-            <div class="streak">
+            <div class="streak" title="Day streak">
                 <img src="@/assets/icons/energy-bolt.svg" alt="day streak" />
                 <div>{{ testStore.testResults.streak }}</div>
             </div>
@@ -33,13 +33,6 @@ onBeforeRouteLeave((to) => {
 </template>
 
 <style scoped>
-.module-wrapper {
-    display: flex;
-    flex-grow: 1;
-    padding: 32px 16px 16px 16px;
-    flex-direction: column;
-    overflow: hidden;
-}
 header {
     flex-direction: row;
     justify-content: space-between;

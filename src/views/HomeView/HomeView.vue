@@ -8,7 +8,7 @@ const testStore = useTestStore()
 <template>
     <div class="main-view-wrapper">
         <header>
-                <div>
+                <div title="Day streak" >
                     <h1>Welcome!</h1>
                     <div class="streak">
                         <img src="@/assets/icons/energy-bolt.svg" alt="day streak" />
@@ -56,9 +56,7 @@ nav {
 
 @media only screen and (min-width: 800px) {
     .main-view-wrapper {
-        padding-top: 32px;
-        padding-right: 16px;
-        padding-left: 16px;
+        padding: 32px 16px 16px 16px;
     }
 }
 </style>

@@ -32,13 +32,13 @@ watch(errorCurrent, () => {
     bottom: 10%;
     left: 50%;
     transform: translateX(-50%);
-    background-color: #2a2929dd;
+    background-color: var(--black-a90);
     border-radius: 12px;
     text-align: center;
     padding: 16px;
 
     & p {
-        color: var(--red-900);
+        color: var(--red-100);
     }
 }
 

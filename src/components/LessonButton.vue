@@ -30,12 +30,12 @@ function getValueByPath(obj: Record<string, any>, path: string): any {
             "
         >
             <div class="info-container">
-                <div class="button-header">
+                <div class="button-info">
                     <img src="@/assets/icons/star.svg" alt="introduction to verbs" />
                     <h4>{{ props.lessonHeader }}</h4>
                 </div>
                 <h2>{{ props.lessonName }}</h2>
-                <h4>{{ props.lessonInfo }}</h4>
+                <h4 class="description">{{ props.lessonInfo }}</h4>
             </div>
             <img src="@/assets/icons/arrow-right-white.svg" alt="lesson button" />
         </button>
@@ -52,12 +52,29 @@ button {
     align-items: center;
     padding: 16px;
     border-radius: 16px;
-    border: 0.5px solid rgb(255, 255, 255);
-    background-color: rgb(68, 68, 81);
+    border: 1px solid var(--orange-5);
+    background-color: var(--black-500);
+}
+
+button:hover {
+    border: 1px solid var(--orange-a20);
+    background-color: var(--orange-a10);
+}
+
+button:active {
+    border: 1px solid var(--orange-100);
+    background-color: var(--black-500);
 }
 
 button:disabled {
-    background-color: rgba(226, 133, 133, 0.362);
+    cursor: not-allowed;
+    background-color: var(--black-500);
+    opacity: 0.5;
+}
+
+button:disabled:active {
+    background-color: var(--black-500);
+    border: 1px solid var(--orange-a20);
 }
 
 .info-container {
@@ -65,6 +82,7 @@ button:disabled {
     flex-direction: column;
     align-items: flex-start;
     text-align: left;
+    gap: 4px;
 }
 a {
     text-decoration: none;
@@ -72,13 +90,28 @@ a {
     flex-grow: 1;
     width: 100%;
 }
+
+h2 {
+    font-family: Satoshi-Medium;
+    font-size: 16px;
+}
+h4 {
+    font-family: Satoshi-Light;
+    font-size: 12px;
+    color: var(--orange-100);
+}
+
+h4.description {
+    color: var(--white-a70);
+}
 h2,
 h4 {
     margin: 0px;
 }
 
-.button-header {
+.button-info {
     display: flex;
     flex-wrap: nowrap;
+    gap: 4px;
 }
 </style>

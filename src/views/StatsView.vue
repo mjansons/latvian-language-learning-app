@@ -51,7 +51,7 @@ const accuracy = computed(() => {
     display: flex;
     flex-direction: column;
     flex-grow: 1;
-    padding: 32px 16px 16px;
+    padding: 32px 16px 0 16px;
     overflow: hidden;
 }
 
@@ -68,11 +68,12 @@ const accuracy = computed(() => {
     flex-direction: row;
     justify-content: space-between;
     align-items: center;
-    background-color: rgb(63, 52, 52);
+    background-color: var(--black-500);
     flex: 1 1 0;
     border-radius: 12px;
     padding: 16px;
     min-width: 170px;
+    border: 1px solid var(--orange-5);
 
     & img {
         width: 36px;
@@ -84,6 +85,7 @@ const accuracy = computed(() => {
     }
     & p {
         font-size: 12px;
+        color: var(--orange-100);
     }
     & h2,
     p {

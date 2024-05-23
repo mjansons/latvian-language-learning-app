@@ -1,21 +1,18 @@
 :root {
-  --purple-100: #ae98ff;
-  --purple-200: #7b64cb;
-  --purple-300: #6b2bff4d;
-  --purple-400: #6b2bff;
-  --purple-900: #19113d;
-  --black-500: #776ba5;
-  --black-800: #121128;
-  --black-900: #07071b;
-  --white-900: #ffffffe6;
-  --white-100: #ffffff1a;
-  --white-400: #ffffff0a;
-  --red-100: #ff7d9c1a;
-  --red-300: #ff7d9c4D;
-  --red-900: #ff7d9c;
-  --green-100: #292D43;
-  --green-400: #3D606C;
-  --green-900: #65C5BF;
+  --black-100: #02010E;
+  --black-500: #100e15;
+  --black-a90: #161519E6;
+  --white-a40: #fff6;
+  --white-a70: #ffffffb5;
+  --white-a80: #fffc;
+  --orange-5: #1c151b;
+  --orange-a10: #ff876d1a;
+  --orange-a20: #ff876d33;
+  --orange-100: #ff876d;
+  --green-100: #72ecc0;
+  --green-a20: #193234;
+  --red-100: #ff5775;
+  --red-a20: #351425;
 
 }
 
@@ -71,7 +68,7 @@
 
 
 * {
-  color: var(--white-900);
+  color: var(--white-a80);
   font-family: Satoshi-Variable, sans-serif;
 }
 
@@ -81,7 +78,7 @@ html {
   margin: 0;
   height: 100vh;
   width: 100vw;
-  background-color: var(--black-800);
+  background-color: var(--black-100);
 }
 
 body {
@@ -100,17 +97,33 @@ header {
   }
 
   h1 {
+    font-family: Satoshi-Bold, sans-serif;
+    font-size: 18px;
     margin: 0;
+    color: var(--white-a80);
+    text-align: left;
   }
 
   p {
+    font-family: Satoshi-Light, sans-serif;
+    font-size: 12px;
     margin-top: 4px;
     margin-bottom: 4px;
+    color: var(--white-a80);
+    text-align: left;
   }
 
   & a {
     display: flex;
     align-items: center;
+  }
+
+  & img[alt="back button"]:hover {
+    opacity: 0.7;
+  }
+
+  & img[alt="back button"]:active {
+    opacity: 0.25;
   }
 }
 
@@ -168,9 +181,23 @@ footer>button:only-child {
   justify-content: space-between;
   padding: 32px;
   overflow: hidden;
+  background-color: var(--black-100);
 
   & main {
     overflow: scroll;
+  }
+
+  & main h1 {
+    font-family: Satoshi-Bold, sans-serif;
+    font-size: 24px;
+    margin: 16px 0;
+    color: var(--white-a80);
+  }
+
+  & main p {
+    font-family: Satoshi-Variable, sans-serif;
+    font-size: 16px;
+    color: var(--white-a50);
   }
 
   footer {
@@ -178,10 +205,35 @@ footer>button:only-child {
   }
 }
 
+
+.level-view-wrapper {
+  display: flex;
+  flex-grow: 1;
+  padding: 32px 16px 0;
+  flex-direction: column;
+  overflow: hidden;
+}
+
+.module-wrapper {
+  display: flex;
+  flex-grow: 1;
+  padding: 32px 16px 0;
+  flex-direction: column;
+  overflow: hidden;
+}
+
 @media only screen and (width >=800px) {
   #app {
     padding: 0;
     flex-direction: row-reverse;
+  }
+
+  .level-view-wrapper {
+    padding: 32px 16px 16px;
+  }
+
+  .module-wrapper {
+    padding: 32px 16px 16px;
   }
 }
 

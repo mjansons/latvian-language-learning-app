@@ -63,7 +63,7 @@ header {
 header::after {
     content: '';
     position: absolute;
-    background-color: orange;
+    background-color: var(--orange-100);
     height: 3px;
     width: var(--progress-width);
     left: 0px;
@@ -71,7 +71,19 @@ header::after {
     transition: 0.3s ease-in-out;
 }
 
-h1 {
-    text-align: center;
+img[alt='exit button'],
+img[alt='settings'] {
+    width: 24px;
+    height: 24px;
+}
+
+img[alt='exit button']:hover,
+img[alt='settings']:hover {
+    opacity: 0.7;
+}
+
+img[alt='exit button']:active,
+img[alt='settings']:active {
+    opacity: 0.25;
 }
 </style>

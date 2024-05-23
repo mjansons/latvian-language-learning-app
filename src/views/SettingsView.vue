@@ -60,16 +60,19 @@ onBeforeRouteLeave((to) => {
 .setting-box {
     display: flex;
     justify-content: space-between;
-    background-color: var(--black-900);
+    background-color: var(--black-500);
+    border: 1px solid var(--orange-5);
     border-radius: 12px;
     padding: 16px;
     max-height: fit-content;
 
     & h2 {
         font-size: 16px;
+        color: var(--white-a80);
     }
     & p {
         font-size: 12px;
+        color: var(--white-a70);
     }
     & p,
     h2 {
@@ -108,7 +111,7 @@ onBeforeRouteLeave((to) => {
 .toggle-slider {
     width: 40px;
     height: 22px;
-    background-color: #ccc;
+    background-color: var(--orange-a20);
     border-radius: 20px;
     margin-left: 0;
     transition: background-color 0.2s;
@@ -123,16 +126,17 @@ onBeforeRouteLeave((to) => {
     height: 18px;
     left: 2px;
     bottom: 2px;
-    background-color: rgb(25, 23, 34);
+    background-color: var(--black-100);
     border-radius: 50%;
     transition: transform 0.2s;
 }
 
 .toggle-input:checked + .toggle-slider {
-    background-color: #cc7f3b;
+    background-color: var(--orange-100);
 }
 
 .toggle-input:checked + .toggle-slider::before {
     transform: translateX(18px);
+    background-color: var(--black-500);
 }
 </style>

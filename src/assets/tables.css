@@ -2,45 +2,51 @@
 
 /* The styling of 2 column tables */
 table {
+    box-sizing: content-box;
     border-collapse: separate;
     border-spacing: 0;
     overflow: hidden;
 }
 
 th {
-    background-color: #3a3a3a;
-    color: #FFF;
+    background-color: var(--black-500);
+    color: var(--white-a80);
+}
+
+td {
+    color: var(--white-a70);
 }
 
 th,
 td {
-    padding: 12px 40px 12px 16px;
+    box-sizing: content-box;
+    padding: 12px 50px 12px 16px;
     text-align: left;
 }
 
 td:nth-child(even),
 th:nth-child(even) {
-    border-right: 0.5px solid rgb(86 86 86);
-    border-bottom: 0.5px solid rgb(86 86 86);
+    border-right: 1px solid var(--black-500);
+    border-bottom: 1px solid var(--black-500);
 }
 
 td:nth-child(odd),
 th:nth-child(odd) {
-    border-left: 0.5px solid rgb(86 86 86);
-    border-bottom: 0.5px solid rgb(86 86 86);
+    border-left: 1px solid var(--black-500);
+    border-bottom: 1px solid var(--black-500);
 }
 
 /* four-column-table class exception */
 .four-column-table td:nth-child(2),
 .four-column-table th:nth-child(2) {
     border-right: none;
-    border-bottom: 0.5px solid rgb(86 86 86);
+    border-bottom: 1px solid var(--black-500);
 }
 
 .four-column-table td:nth-child(3),
 .four-column-table th:nth-child(3) {
     border-left: none;
-    border-bottom: 0.5px solid rgb(86 86 86);
+    border-bottom: 1px solid var(--black-500);
 }
 
 /* the end of the four-column-table class exception */
@@ -64,7 +70,7 @@ tr:last-child td:last-child {
 @media only screen and (width <=600px) {
     th,
     td {
-        padding: 8px 16px 8px 8px;
+        padding: 12px 16px 12px 12px;
         font-size: 12px;
     }
 }

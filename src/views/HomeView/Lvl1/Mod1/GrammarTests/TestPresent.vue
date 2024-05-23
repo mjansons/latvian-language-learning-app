@@ -131,7 +131,7 @@ function updateAllData() {
     position: fixed;
     width: 100vw;
     height: 100vh;
-    background-color: rgba(53, 53, 56, 0.9);
+    background-color: var(--black-a90);
     display: flex;
     flex-direction: column;
     justify-content: center;
@@ -141,7 +141,7 @@ function updateAllData() {
 }
 
 .final-score-content {
-    background-color: rgb(14, 14, 16);
+    background-color: var(--black-100);
     padding: 32px;
     border-radius: 16px;
     overflow: auto;

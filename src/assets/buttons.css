@@ -8,71 +8,107 @@ a {
 .btn-back {
     display: flex;
     font-size: 14px;
+    font-family: Satoshi-Bold, sans-serif;
     width: 80px;
     padding: 6px 12px;
     justify-content: center;
     align-items: center;
-    background-color: var(--white-400);
-    color: var(--white-900);
-    border: 0.5px solid var(--white-100);
     border-radius: 8px;
     text-decoration: none;
 }
 
 .btn-back {
     display: flex;
-    background-color: var(--red-300);
+    background-color: var(--orange-a10);
+    color: var(--orange-100);
+    border: 0.5px solid var(--orange-5);
+}
+
+.btn-next {
+    display: flex;
+    background-color: var(--orange-100);
+    color: var(--black-500);
+    border: 0.5px solid var(--orange-5);
 }
 
 .btn-next:hover,
 .btn-back:hover {
-    background-color: var(--purple-300);
+    background-color: var(--orange-a20);
+    color: var(--white-a80);
     cursor: pointer;
 }
 
-.btn-next:active,
+.btn-next:active {
+    background-color: var(--black-500);
+    border-color: var(--orange-100);
+}
+
 .btn-back:active {
-    background-color: var(--white-400);
-    border-color: var(--purple-400);
+    background-color: var(--orange-100);
+    color: var(--black-500);
 }
 
 .btn-continue-green {
-    background-color: rgb(49 90 49);
+    background-color: var(--green-100);
 }
 
 .btn-continue-red {
-    background-color: rgb(79 35 35);
+    background-color: var(--red-100);;
 }
 
 .btn-continue-green,
 .btn-continue-red {
+    color: var(--black-500);
     font-size: 14px;
     padding: 6px 24px;
     height: fit-content;
     align-self: flex-end;
     border-radius: 8px;
-    border: none;
+    font-family: Satoshi-Bold, sans-serif;
+    justify-content: center;
+    align-items: center;
+    border: 1px solid var(--orange-5);
 }
 
+.btn-continue-green:hover {
+    background-color: var(--green-a20);
+    color: var(--white-a80);
+}
 
+.btn-continue-red:hover {
+    background-color: var(--red-a20);
+    color: var(--white-a80);
+}
+
+.btn-continue-green:active {
+    background-color: var(--green-a20);
+    border: 1px solid var(--green-100);
+    outline: none;
+}
+
+.btn-continue-red:active {
+    background-color: var(--red-a20);
+    border: 1px solid var(--red-100);
+    outline: none;
+}
 
 .btn-hint {
     align-self: flex-end;
     margin: 8px 0;
     cursor: pointer;
     white-space: nowrap;
-    color: var(--white-900);
+    color: var(--orange-100);
     width: fit-content;
     background-color: transparent;
     border: none;
 }
 
 .btn-hint:hover {
-    opacity: 0.75;
+    opacity: 0.8;
 }
 
 .btn-hint:active {
-    opacity: 0.25;
+    opacity: 0.5;
 }
 
 .letter-button-wrapper {
@@ -86,16 +122,19 @@ a {
     width: 40px;
     height: 40px;
     border-radius: 8px;
-    border: none;
-    background-color: var(--black-500);
+    border: 0.5px solid var(--black-500);
+    background-color: var(--orange-a10);
+    color: var(--orange-100);
 }
 
 .btn-letter:hover {
-    background-color: var(--purple-200);
+    background-color: var(--orange-a20);
+    color: var(--white-a80);
 }
 
 .btn-letter:active {
-    background-color: var(--black-800);
+    background-color: var(--orange-100);
+    color: var(--black-500);
 }
 
 /* toggle slider */
@@ -105,7 +144,7 @@ a {
     display: flex;
     flex-wrap: nowrap;
     align-items: center;
-    background-color: #353142;
+    background-color: var(--black-500);
     border-radius: 8px;
     margin-bottom: 40px;
 }
@@ -129,7 +168,7 @@ a {
     left: 0;
     width: 100%;
     height: 100%;
-    background-color: rgb(57 84 74);
+    background-color: var(--orange-100);
 }
 
 .toggle input:checked+.slider {
@@ -138,13 +177,20 @@ a {
 
 .label-left,
 .label-right {
-    margin: 8px;
+    font-family: Satoshi-Bold, sans-serif;
+    font-size: 14px;
+    margin: 12px;
     display: flex;
     justify-content: space-around;
     align-items: center;
-    color: rgb(251 251 251);
+    color: var(--white-a80);
     width: 50%;
     z-index: 2;
+}
+
+.black-font {
+    color: var(--black-500);
+    transition: ease-in-out 0.5s;
 }
 
 /* end of toggle slider */

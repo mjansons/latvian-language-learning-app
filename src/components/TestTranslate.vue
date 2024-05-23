@@ -25,11 +25,17 @@ const inProgress: Ref<boolean> = ref(true)
 
 const isAnswerCorrect: Ref<boolean> = ref(true)
 
+// to switch focus from inpput after pressing enter
+const continueCorrect: Ref<HTMLInputElement | null> = ref(null);
+const continueIncorrect: Ref<HTMLInputElement | null> = ref(null);
+
 function checkAnswer(): void {
     if (answer.value.toLocaleLowerCase().trim() === props.correctAnswer) {
         isAnswerCorrect.value = true
+        continueCorrect.value?.focus()
     } else {
         isAnswerCorrect.value = false
+        continueIncorrect.value?.focus()
     }
     inProgress.value = false
 }
@@ -46,7 +52,7 @@ function checkAnswer(): void {
                 <label for="task">
                     {{ props.toTranslate }}
                 </label>
-                <input type="text" name="" id="task" placeholder="Type here" v-model="answer" />
+                <input type="text" name="" id="task" placeholder="Type here" v-model="answer" @keydown.enter="checkAnswer"/>
                 <button
                     type="button"
                     class="btn-hint"
@@ -87,6 +93,7 @@ function checkAnswer(): void {
                     type="button"
                     class="btn-continue-green"
                     @click="emit('isOver', isAnswerCorrect)"
+                    ref="continueCorrect"
                 >
                     Continue
                 </button>
@@ -95,12 +102,13 @@ function checkAnswer(): void {
                 <div class="left-content">
                     <img src="@/assets/icons/red-x.svg" alt="incorrect answer" />
                     <h1>Incorrect!</h1>
-                    <p>Correct answer: {{ props.correctAnswer }}</p>
+                    <p>Correct answer: <span>{{ props.correctAnswer }}</span></p>
                 </div>
                 <button
                     type="button"
                     class="btn-continue-red"
                     @click="emit('isOver', isAnswerCorrect)"
+                    ref="continueIncorrect"
                 >
                     Continue
                 </button>
@@ -113,7 +121,6 @@ function checkAnswer(): void {
 </template>
 
 <style scoped>
-
 footer {
     margin-top: 0px;
 }
@@ -154,6 +161,12 @@ footer {
         width: 50px;
         height: 50px;
     }
+
+    & h1 {
+        font-family: Satoshi-Bold, sans-serif;
+        font-size: 24px;
+        color: var(--white-a80);
+    }
 }
 
 .form-wrapper {
@@ -165,12 +178,18 @@ footer {
 
     & label {
         margin: 8px;
+        font-family: Satoshi-Medium, sans-serif;
+        font-size: 16px;
+        color: var(--white-a70);
     }
 
     & input {
         border: none;
         border-radius: 12px;
-        background-color: var(--black-900);
+        font-family: Satoshi-Medium, sans-serif;
+        font-size: 16px;
+        background-color: var(--black-500);
+        color: var(--white-a40);
         margin: 8px 0;
         height: 52px;
     }
@@ -180,7 +199,8 @@ footer {
 
     input:focus {
         padding-left: 16px;
-        caret-color: var(--white-900);
+        caret-color: var(--orange-100);
+        outline: 1px solid var(--orange-a20);
     }
 
     input:not(:focus):not(:placeholder-shown) {
@@ -198,7 +218,7 @@ footer {
     left: 0;
     width: 100vw;
     height: 100vh;
-    background-color: rgba(53, 53, 56, 0.9);
+    background-color: var(--black-a90);
     display: flex;
     justify-content: center;
     align-items: center;
@@ -207,7 +227,7 @@ footer {
 }
 
 .hint-content {
-    background-color: rgb(14, 14, 16);
+    background-color: var(--black-100);
     padding: 40px;
     border-radius: 16px;
     overflow: auto;
@@ -216,11 +236,33 @@ footer {
     justify-content: center;
     align-items: center;
     text-align: center;
-    gap: 40px;
+    gap: 32px;
 
     & .btn-next {
         align-self: flex-end;
     }
+}
+
+.left-content {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+
+    & h1, p {
+        margin: 0px;
+    }
+
+    & img {
+        width: 44px;
+        height: 44px;
+    }
+    & p {
+        font-family: Satoshi-Medium, sans-serif;
+        font-size: 16px;
+        color: var(--white-a70);
+    }
+
+
 }
 
 .correct,
@@ -228,16 +270,28 @@ footer {
     display: flex;
     justify-content: space-between;
     width: 100%;
-    background-color: rgb(29, 29, 33);
+    background-color: var(--black-500);
     border-radius: 16px;
     padding: 24px;
 
     & h1 {
-        margin: 4px 0;
-    }
+        font-family: Satoshi-Bold, sans-serif;
+        font-size: 24px;
 
-    & p {
-        margin: 4px 0;
     }
+}
+
+.correct h1 {
+    color: var(--green-100);
+}
+
+.incorrect h1 {
+    color: var(--red-100);
+}
+
+.incorrect span {
+    color: var(--red-100);
+    text-decoration: underline;
+    text-underline-offset: 5px;
 }
 </style>

@@ -27,7 +27,7 @@ const practiceView: Ref<boolean> = ref(false)
                 <img src="@/assets/icons/arrow-left-white.svg" alt="back button" />
             </RouterLink>
             <h1>Irregular Verbs</h1>
-            <div class="streak">
+            <div class="streak" title="Day streak">
                 <img src="@/assets/icons/energy-bolt.svg" alt="day streak" />
                 <div>{{ testStore.testResults.streak }}</div>
             </div>
@@ -35,8 +35,8 @@ const practiceView: Ref<boolean> = ref(false)
         <label class="toggle">
             <input type="checkbox" v-model="practiceView" />
             <span class="slider"></span>
-            <span class="label-left">Learn</span>
-            <span class="label-right">Practice</span>
+            <span :class="['label-left', { 'black-font': !practiceView }]">Learn</span>
+            <span :class="['label-right', { 'black-font': practiceView }]">Practice</span>
         </label>
         <nav class="lesson-wrapper" v-if="!practiceView">
             <LessonButton
@@ -115,13 +115,6 @@ const practiceView: Ref<boolean> = ref(false)
 </template>
 
 <style scoped>
-.module-wrapper {
-    display: flex;
-    flex-grow: 1;
-    padding: 32px 16px 16px 16px;
-    flex-direction: column;
-    overflow: hidden;
-}
 header {
     flex-direction: row;
     justify-content: space-between;
