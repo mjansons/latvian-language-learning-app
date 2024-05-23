@@ -56,10 +56,12 @@ function checkAnswer(): void {
                     Need a hint?
                 </button>
                 <div v-if="showHint" class="hint">
-                    <button type="button" class="btn-letter" @click="showHint = !showHint">
-                        x
-                    </button>
-                    <slot></slot>
+                    <div class="hint-content">
+                        <slot></slot>
+                        <button type="button" class="btn-next" @click="showHint = !showHint">
+                            close
+                        </button>
+                    </div>
                 </div>
             </div>
             <div class="letter-button-wrapper">
@@ -81,7 +83,11 @@ function checkAnswer(): void {
                     <h1>Correct!</h1>
                     <p>{{ props.correctAnswer }}</p>
                 </div>
-                <button type="button" class="btn-back" @click="emit('isOver', isAnswerCorrect)">
+                <button
+                    type="button"
+                    class="btn-continue-green"
+                    @click="emit('isOver', isAnswerCorrect)"
+                >
                     Continue
                 </button>
             </div>
@@ -91,11 +97,15 @@ function checkAnswer(): void {
                     <h1>Incorrect!</h1>
                     <p>Correct answer: {{ props.correctAnswer }}</p>
                 </div>
-                <button type="button" class="btn-back" @click="emit('isOver', isAnswerCorrect)">
+                <button
+                    type="button"
+                    class="btn-continue-red"
+                    @click="emit('isOver', isAnswerCorrect)"
+                >
                     Continue
                 </button>
             </div>
-            <button v-if="inProgress" type="button" class="btn-back" @click="checkAnswer">
+            <button v-if="inProgress" type="button" class="btn-next" @click="checkAnswer">
                 Check
             </button>
         </footer>
@@ -103,6 +113,10 @@ function checkAnswer(): void {
 </template>
 
 <style scoped>
+
+footer {
+    margin-top: 0px;
+}
 .translate-test-wrapper {
     display: flex;
     flex-grow: 1;
@@ -114,13 +128,22 @@ function checkAnswer(): void {
     display: flex;
     flex-direction: column;
     align-items: center;
+    align-content: center;
     flex-grow: 1;
     justify-content: center;
     overflow: scroll;
 
     h1 {
         margin: 16px 0;
+        text-align: center;
     }
+}
+
+.letter-button-wrapper {
+    display: flex;
+    flex-direction: row;
+    gap: 8px;
+    justify-content: center;
 }
 
 .test-title {
@@ -150,7 +173,6 @@ function checkAnswer(): void {
         background-color: var(--black-900);
         margin: 8px 0;
         height: 52px;
-        /* background-color: transparent; */
     }
     input::placeholder {
         padding: 16px;
@@ -161,7 +183,7 @@ function checkAnswer(): void {
         caret-color: var(--white-900);
     }
 
-    input:not(:focus):not(:placeholder-shown){
+    input:not(:focus):not(:placeholder-shown) {
         padding-left: 16px;
     }
 
@@ -170,57 +192,35 @@ function checkAnswer(): void {
     }
 }
 
-.btn-hint {
-    align-self: flex-end;
-    margin: 8px 0;
-    cursor: pointer;
-    white-space: nowrap;
-    color: var(--white-900);
-    width: fit-content;
-    background-color: transparent;
-    border: none;
-}
-
-.btn-hint:hover {
-    opacity: 0.75;
-}
-
-.btn-hint:active {
-    opacity: 0.25;
-}
-
-.letter-button-wrapper {
-    margin: 8px 0;
-    display: flex;
-    flex-wrap: wrap;
-    gap: 8px;
-}
-
-.btn-letter {
-    width: 40px;
-    height: 40px;
-    background-color: transparent;
-    border-radius: 8px;
-    border: none;
-    background-color: var(--black-500);
-}
-
-.btn-letter:hover {
-    background-color: var(--purple-200);
-}
-
-.btn-letter:active {
-    background-color: var(--black-800);
-}
-
-
 .hint {
-    position: absolute;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    background-color: rgba(53, 53, 56, 0.9);
+    display: flex;
+    justify-content: center;
+    align-items: center;
     z-index: 2;
-    background-color: rgb(53, 53, 56);
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
+    overflow: auto;
+}
+
+.hint-content {
+    background-color: rgb(14, 14, 16);
+    padding: 40px;
+    border-radius: 16px;
+    overflow: auto;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    gap: 40px;
+
+    & .btn-next {
+        align-self: flex-end;
+    }
 }
 
 .correct,
@@ -232,7 +232,7 @@ function checkAnswer(): void {
     border-radius: 16px;
     padding: 24px;
 
-    & h1{
+    & h1 {
         margin: 4px 0;
     }
 

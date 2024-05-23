@@ -36,6 +36,67 @@ a {
     border-color: var(--purple-400);
 }
 
+.btn-continue-green {
+    background-color: rgb(49 90 49);
+}
+
+.btn-continue-red {
+    background-color: rgb(79 35 35);
+}
+
+.btn-continue-green,
+.btn-continue-red {
+    font-size: 14px;
+    padding: 6px 24px;
+    height: fit-content;
+    align-self: flex-end;
+    border-radius: 8px;
+    border: none;
+}
+
+
+
+.btn-hint {
+    align-self: flex-end;
+    margin: 8px 0;
+    cursor: pointer;
+    white-space: nowrap;
+    color: var(--white-900);
+    width: fit-content;
+    background-color: transparent;
+    border: none;
+}
+
+.btn-hint:hover {
+    opacity: 0.75;
+}
+
+.btn-hint:active {
+    opacity: 0.25;
+}
+
+.letter-button-wrapper {
+    margin: 8px 0;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+}
+
+.btn-letter {
+    width: 40px;
+    height: 40px;
+    border-radius: 8px;
+    border: none;
+    background-color: var(--black-500);
+}
+
+.btn-letter:hover {
+    background-color: var(--purple-200);
+}
+
+.btn-letter:active {
+    background-color: var(--black-800);
+}
 
 /* toggle slider */
 .toggle {

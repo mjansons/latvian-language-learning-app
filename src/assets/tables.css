@@ -60,3 +60,11 @@ tr:last-child td:first-child {
 tr:last-child td:last-child {
     border-bottom-right-radius: 12px;
 }
+
+@media only screen and (width <=600px) {
+    th,
+    td {
+        padding: 8px 16px 8px 8px;
+        font-size: 12px;
+    }
+}

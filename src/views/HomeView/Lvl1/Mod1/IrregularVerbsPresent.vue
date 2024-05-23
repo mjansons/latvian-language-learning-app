@@ -91,11 +91,11 @@ function updateAllData() {
                     </tr>
                     <tr>
                         <td>es</td>
-                        <td>es-mu</td>
+                        <td>esmu</td>
                     </tr>
                     <tr>
                         <td>tu</td>
-                        <td>es-i</td>
+                        <td>esi</td>
                     </tr>
                     <tr>
                         <td>viņš, viņa</td>
@@ -107,7 +107,7 @@ function updateAllData() {
                     </tr>
                     <tr>
                         <td>jūs</td>
-                        <td>es-at</td>
+                        <td>esat</td>
                     </tr>
                     <tr>
                         <td>viņi, viņas</td>
@@ -127,27 +127,27 @@ function updateAllData() {
                     </tr>
                     <tr>
                         <td>es</td>
-                        <td>do-du</td>
+                        <td>dodu</td>
                     </tr>
                     <tr>
                         <td>tu</td>
-                        <td>do-d</td>
+                        <td>dod</td>
                     </tr>
                     <tr>
                         <td>viņš, viņa</td>
-                        <td>do-d</td>
+                        <td>dod</td>
                     </tr>
                     <tr>
                         <td>mēs</td>
-                        <td>do-dam</td>
+                        <td>dodam</td>
                     </tr>
                     <tr>
                         <td>jūs</td>
-                        <td>do-dat</td>
+                        <td>dodat</td>
                     </tr>
                     <tr>
                         <td>viņi, viņas</td>
-                        <td>do-d</td>
+                        <td>dod</td>
                     </tr>
                 </table>
             </div>

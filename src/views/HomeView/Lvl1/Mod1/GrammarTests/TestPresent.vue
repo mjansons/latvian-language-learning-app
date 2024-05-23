@@ -113,13 +113,51 @@ function updateAllData() {
             </TestTranslate>
         </template>
         <div v-if="testResultVisible" class="final-score">
-            <h1>Test is over</h1>
-            <p>Your final score: {{ finalResult }}/{{ TEST_PARTS }}</p>
-            <RouterLink :to="{ name: 'module-1' }" tabindex="-1">
-                <button type="button" @click="updateAllData">Return</button>
-            </RouterLink>
+            <div class="final-score-content">
+                <div class="test-results">
+                    <h1>Test is over</h1>
+                    <p>Your final score: {{ finalResult }}/{{ TEST_PARTS }}</p>
+                </div>
+                <RouterLink :to="{ name: 'module-1' }" tabindex="-1">
+                    <button type="button" @click="updateAllData" class="btn-next">Return</button>
+                </RouterLink>
+            </div>
         </div>
     </div>
 </template>
 
-<style scoped></style>
+<style scoped>
+.final-score {
+    position: fixed;
+    width: 100vw;
+    height: 100vh;
+    background-color: rgba(53, 53, 56, 0.9);
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    z-index: 2;
+    overflow: auto;
+}
+
+.final-score-content {
+    background-color: rgb(14, 14, 16);
+    padding: 32px;
+    border-radius: 16px;
+    overflow: auto;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    gap: 32px;
+    max-width: 90%;
+    max-height: 90%;
+
+    & h1,
+    p {
+        margin: 8px 0;
+    }
+
+}
+</style>

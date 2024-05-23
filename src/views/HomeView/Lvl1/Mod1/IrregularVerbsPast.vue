@@ -53,27 +53,27 @@ function updateAllData() {
                     </tr>
                     <tr>
                         <td>es</td>
-                        <td>b-iju</td>
+                        <td>biju</td>
                     </tr>
                     <tr>
                         <td>tu</td>
-                        <td>b-iji</td>
+                        <td>biji</td>
                     </tr>
                     <tr>
                         <td>viņš, viņa</td>
-                        <td>b-ija</td>
+                        <td>bija</td>
                     </tr>
                     <tr>
                         <td>mēs</td>
-                        <td>b-ijām</td>
+                        <td>bijām</td>
                     </tr>
                     <tr>
                         <td>jūs</td>
-                        <td>b-ijāt</td>
+                        <td>bijāt</td>
                     </tr>
                     <tr>
                         <td>viņi, viņas</td>
-                        <td>b-ija</td>
+                        <td>bija</td>
                     </tr>
                 </table>
             </div>
@@ -89,27 +89,27 @@ function updateAllData() {
                     </tr>
                     <tr>
                         <td>es</td>
-                        <td>d-evu</td>
+                        <td>devu</td>
                     </tr>
                     <tr>
                         <td>tu</td>
-                        <td>d-evi</td>
+                        <td>devi</td>
                     </tr>
                     <tr>
                         <td>viņš, viņa</td>
-                        <td>d-eva</td>
+                        <td>deva</td>
                     </tr>
                     <tr>
                         <td>mēs</td>
-                        <td>d-evām</td>
+                        <td>devām</td>
                     </tr>
                     <tr>
                         <td>jūs</td>
-                        <td>d-evāt</td>
+                        <td>devāt</td>
                     </tr>
                     <tr>
                         <td>viņi, viņas</td>
-                        <td>d-eva</td>
+                        <td>deva</td>
                     </tr>
                 </table>
             </div>

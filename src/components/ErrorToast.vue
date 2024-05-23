@@ -32,7 +32,7 @@ watch(errorCurrent, () => {
     bottom: 10%;
     left: 50%;
     transform: translateX(-50%);
-    background-color: #201328f2;
+    background-color: #2a2929dd;
     border-radius: 12px;
     text-align: center;
     padding: 16px;
@@ -48,9 +48,9 @@ button {
     align-items: center;
     align-content: center;
     background-color: transparent;
-    border: 0;
-    padding: 4px;
-    margin: 4px;
+    padding: 0;
+    margin-left: 8px;
+    border: none;
 
     & img {
         width: 18px;
@@ -58,12 +58,11 @@ button {
 }
 
 button:hover {
-    opacity: 50%;
+    opacity: 75%;
 }
 
 button:active {
     border-radius: 8px;
-    border: 1px solid var(--red-900);
-    opacity: 70%;
+    opacity: 35%;
 }
 </style>

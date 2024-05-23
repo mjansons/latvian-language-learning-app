@@ -29,7 +29,6 @@ function getValueByPath(obj: Record<string, any>, path: string): any {
                     <h4>{{ props.sectionHeader }}</h4>
                 </div>
                 <h2>{{ props.sectionName }}</h2>
-                <div>------ 2/2</div>
             </div>
             <img src="@/assets/icons/arrow-right-white.svg" alt="section button" />
         </button>

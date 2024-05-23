@@ -15,27 +15,86 @@ const accuracy = computed(() => {
 </script>
 
 <template>
-    <div class="statistic">
-        <div>
-            <p>{{ testStore.testResults.streak }} Days</p>
-            <h2>Streak</h2>
+    <div class="stats-wrapper">
+        <header>
+            <h1>Statistics</h1>
+            <p>See how you progress over time</p>
+        </header>
+        <div class="stats-content">
+            <div class="statistic">
+                <div class="stat-info">
+                    <p>{{ testStore.testResults.streak }} Days</p>
+                    <h2>Streak</h2>
+                </div>
+                <img src="@/assets/icons/lightning-stats.svg" alt="" />
+            </div>
+            <div class="statistic">
+                <div class="stat-info">
+                    <p>{{ accuracy }}%</p>
+                    <h2>Accuracy</h2>
+                </div>
+                <img src="@/assets/icons/lightning-stats.svg" alt="" />
+            </div>
+            <div class="statistic">
+                <div class="stat-info">
+                    <p>{{ testStore.testResults.testsCompleted }}</p>
+                    <h2>Tests completed</h2>
+                </div>
+                <img src="@/assets/icons/lightning-stats.svg" alt="" />
+            </div>
         </div>
-        <img src="@/assets/icons/energy-bolt.svg" alt="" />
-    </div>
-    <div class="statistic">
-        <div>
-            <p>{{ accuracy }}%</p>
-            <h2>Accuracy</h2>
-        </div>
-        <img src="@/assets/icons/energy-bolt.svg" alt="" />
-    </div>
-    <div class="statistic">
-        <div>
-            <p>{{ testStore.testResults.testsCompleted }}</p>
-            <h2>Tests completed</h2>
-        </div>
-        <img src="@/assets/icons/energy-bolt.svg" alt="" />
     </div>
 </template>
 
-<style scoped></style>
+<style scoped>
+.stats-wrapper {
+    display: flex;
+    flex-direction: column;
+    flex-grow: 1;
+    padding: 32px 16px 16px;
+    overflow: hidden;
+}
+
+.stats-content {
+    display: flex;
+    flex-direction: row;
+    gap: 16px;
+    overflow: scroll;
+    flex-wrap: wrap;
+}
+
+.statistic {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    background-color: rgb(63, 52, 52);
+    flex: 1 1 0;
+    border-radius: 12px;
+    padding: 16px;
+    min-width: 170px;
+
+    & img {
+        width: 36px;
+        height: 36px;
+        margin-left: 8px;
+    }
+    & h2 {
+        font-size: 16px;
+    }
+    & p {
+        font-size: 12px;
+    }
+    & h2,
+    p {
+        margin: 0px;
+        white-space: nowrap;
+    }
+}
+
+.stat-info {
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+}
+</style>

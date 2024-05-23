@@ -46,11 +46,7 @@ function handleResult(isOver: boolean): void {
 
 function updateAllData() {
     testStore.updateStreak()
-    testStore.testResults
-        .tests['level-1']
-        .modules['module-1']
-        .lessons['test-past']
-        .completed = true
+    testStore.testResults.tests['level-1'].modules['module-1'].lessons['test-past'].completed = true
 
     testStore.testResults.testsCompleted++
     testStore.testResults.answeredQuestions += TEST_PARTS
@@ -61,67 +57,106 @@ function updateAllData() {
 </script>
 
 <template>
-    <ProgressHeader :headerName="TEST_NAME" :totalParts="TEST_PARTS" ref="child" />
-    <template v-for="item in pastTestData" :key="item.id">
-        <TestTranslate
-            v-if="item.id === currentPart"
-            :toTranslate="item.question"
-            :correctAnswer="item.answer"
-            @isOver="handleResult"
-        >
-            <table>
-                <tr>
-                    <th>Vietniekvārds</th>
-                    <th>Iet</th>
-                    <th>Būt</th>
-                    <th>Dot</th>
-                </tr>
-                <tr>
-                    <td>es</td>
-                    <td>gāju</td>
-                    <td>biju</td>
-                    <td>devu</td>
-                </tr>
-                <tr>
-                    <td>tu</td>
-                    <td>gāji</td>
-                    <td>biji</td>
-                    <td>devi</td>
-                </tr>
-                <tr>
-                    <td>viņš, viņa</td>
-                    <td>gāja</td>
-                    <td>bija</td>
-                    <td>deva</td>
-                </tr>
-                <tr>
-                    <td>mēs</td>
-                    <td>gājām</td>
-                    <td>bijām</td>
-                    <td>devām</td>
-                </tr>
-                <tr>
-                    <td>jūs</td>
-                    <td>gājāt</td>
-                    <td>bijāt</td>
-                    <td>devāt</td>
-                </tr>
-                <tr>
-                    <td>viņi, viņas</td>
-                    <td>gāja</td>
-                    <td>bija</td>
-                    <td>deva</td>
-                </tr>
-            </table>
-        </TestTranslate>
-    </template>
-    <div v-if="testResultVisible" class="final-score">
-        <h1>Test is over</h1>
-        <p>Your final score: {{ finalResult }}/{{ TEST_PARTS }}</p>
-        <RouterLink :to="{ name: 'module-1' }" tabindex="-1">
-            <button type="button" @click="updateAllData">Return</button>
-        </RouterLink>
+    <div class="lesson-view-wrapper">
+        <ProgressHeader :headerName="TEST_NAME" :totalParts="TEST_PARTS" ref="child" />
+        <template v-for="item in pastTestData" :key="item.id">
+            <TestTranslate
+                v-if="item.id === currentPart"
+                :toTranslate="item.question"
+                :correctAnswer="item.answer"
+                @isOver="handleResult"
+            >
+                <table>
+                    <tr>
+                        <th>Vietniekvārds</th>
+                        <th>Iet</th>
+                        <th>Būt</th>
+                        <th>Dot</th>
+                    </tr>
+                    <tr>
+                        <td>es</td>
+                        <td>gāju</td>
+                        <td>biju</td>
+                        <td>devu</td>
+                    </tr>
+                    <tr>
+                        <td>tu</td>
+                        <td>gāji</td>
+                        <td>biji</td>
+                        <td>devi</td>
+                    </tr>
+                    <tr>
+                        <td>viņš, viņa</td>
+                        <td>gāja</td>
+                        <td>bija</td>
+                        <td>deva</td>
+                    </tr>
+                    <tr>
+                        <td>mēs</td>
+                        <td>gājām</td>
+                        <td>bijām</td>
+                        <td>devām</td>
+                    </tr>
+                    <tr>
+                        <td>jūs</td>
+                        <td>gājāt</td>
+                        <td>bijāt</td>
+                        <td>devāt</td>
+                    </tr>
+                    <tr>
+                        <td>viņi, viņas</td>
+                        <td>gāja</td>
+                        <td>bija</td>
+                        <td>deva</td>
+                    </tr>
+                </table>
+            </TestTranslate>
+        </template>
+        <div v-if="testResultVisible" class="final-score">
+            <div class="final-score-content">
+                <div class="test-results">
+                    <h1>Test is over</h1>
+                    <p>Your final score: {{ finalResult }}/{{ TEST_PARTS }}</p>
+                </div>
+                <RouterLink :to="{ name: 'module-1' }" tabindex="-1">
+                    <button type="button" @click="updateAllData" class="btn-next">Return</button>
+                </RouterLink>
+            </div>
+        </div>
     </div>
 </template>
 
-<style scoped></style>
+<style scoped>
+.final-score {
+    position: fixed;
+    width: 100vw;
+    height: 100vh;
+    background-color: rgba(53, 53, 56, 0.9);
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    z-index: 2;
+    overflow: auto;
+}
+
+.final-score-content {
+    background-color: rgb(14, 14, 16);
+    padding: 32px;
+    border-radius: 16px;
+    overflow: auto;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    gap: 32px;
+    max-width: 90%;
+    max-height: 90%;
+
+    & h1,
+    p {
+        margin: 8px 0;
+    }
+}
+</style>

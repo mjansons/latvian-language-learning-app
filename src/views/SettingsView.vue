@@ -14,21 +14,79 @@ onBeforeRouteLeave((to) => {
 </script>
 
 <template>
-    <main>
-        <div class="toggle-container">
-            <label class="toggle-label">
-                Enable Feature
-                <input type="checkbox" class="toggle-input" v-model="viewStore.hintsVisible" />
-                <span class="toggle-slider"></span>
-            </label>
+    <div class="settings-wrapper">
+        <header>
+            <h1>Settings</h1>
+            <p>Customize your experience</p>
+        </header>
+        <div class="settings-content">
+            <div class="setting-box">
+                <div class="setting-info">
+                    <h2>Show hints</h2>
+                    <p>Display a help section during the test</p>
+                </div>
+                <div
+                    class="toggle-container"
+                    tabindex="0"
+                    @keydown.enter.prevent="viewStore.hintsVisible = !viewStore.hintsVisible"
+                >
+                    <label class="toggle-label">
+                        <input
+                            type="checkbox"
+                            class="toggle-input"
+                            v-model="viewStore.hintsVisible"
+                        />
+                        <span class="toggle-slider"></span>
+                    </label>
+                </div>
+            </div>
         </div>
-    </main>
+    </div>
 </template>
 
 <style scoped>
+.settings-wrapper {
+    display: flex;
+    flex-direction: column;
+    flex-grow: 1;
+    padding: 32px 16px 16px;
+}
+.settings-content {
+    display: flex;
+    flex-direction: column;
+    flex-grow: 1;
+    gap: 24px;
+}
+.setting-box {
+    display: flex;
+    justify-content: space-between;
+    background-color: var(--black-900);
+    border-radius: 12px;
+    padding: 16px;
+    max-height: fit-content;
+
+    & h2 {
+        font-size: 16px;
+    }
+    & p {
+        font-size: 12px;
+    }
+    & p,
+    h2 {
+        margin: 0;
+    }
+}
+
+.setting-info {
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+}
 .toggle-container {
     display: flex;
     align-items: center;
+    margin: 0;
+    padding: 0;
 }
 
 .toggle-label {
@@ -36,8 +94,9 @@ onBeforeRouteLeave((to) => {
     align-items: center;
     cursor: pointer;
     font-size: 16px;
-    margin-right: 10px;
     position: relative;
+    margin: 0;
+    padding: 0;
 }
 
 .toggle-input {
@@ -48,10 +107,10 @@ onBeforeRouteLeave((to) => {
 
 .toggle-slider {
     width: 40px;
-    height: 20px;
+    height: 22px;
     background-color: #ccc;
     border-radius: 20px;
-    margin-left: 10px;
+    margin-left: 0;
     transition: background-color 0.2s;
     display: inline-block;
     position: relative;
@@ -62,18 +121,18 @@ onBeforeRouteLeave((to) => {
     position: absolute;
     width: 18px;
     height: 18px;
-    left: 1px;
-    bottom: 1px;
-    background-color: white;
+    left: 2px;
+    bottom: 2px;
+    background-color: rgb(25, 23, 34);
     border-radius: 50%;
     transition: transform 0.2s;
 }
 
 .toggle-input:checked + .toggle-slider {
-    background-color: #4caf50;
+    background-color: #cc7f3b;
 }
 
 .toggle-input:checked + .toggle-slider::before {
-    transform: translateX(20px);
+    transform: translateX(18px);
 }
 </style>

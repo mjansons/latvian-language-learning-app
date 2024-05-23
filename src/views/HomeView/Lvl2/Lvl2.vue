@@ -1,19 +1,53 @@
 <script setup lang="ts">
+import { ref } from 'vue'
+import type { Ref } from 'vue'
 import useTestStore from '@/stores/TestStore'
+import Paywall from '@/components/Paywall.vue';
 
 const testStore = useTestStore()
+
+const practiceView: Ref<boolean> = ref(false)
+
 </script>
 <template>
-    <header>
-        <RouterLink :to="{ name: 'home' }">
-            <img src="@/assets/icons/arrow-left-white.svg" alt="back button" />
-        </RouterLink>
-        <h1>Level 2</h1>
-        <div class="streak">
-            <img src="@/assets/icons/energy-bolt.svg" alt="day streak" />
-            <div>{{ testStore.testResults.streak }}</div>
+    <div class="level-view-wrapper">
+        <header>
+            <RouterLink :to="{ name: 'home' }">
+                <img src="@/assets/icons/arrow-left-white.svg" alt="back button" />
+            </RouterLink>
+            <h1>Level 2</h1>
+            <div class="streak">
+                <img src="@/assets/icons/energy-bolt.svg" alt="day streak" />
+                <div>{{ testStore.testResults.streak }}</div>
+            </div>
+        </header>
+        <label class="toggle">
+            <input type="checkbox" v-model="practiceView" />
+            <span class="slider"></span>
+            <span class="label-left">Learn</span>
+            <span class="label-right">Practice</span>
+        </label>
+        <paywall></paywall>
+        <div v-if="!practiceView" class="lesson-wrapper">
         </div>
-    </header>
+    </div>
 </template>
 
-<style scoped></style>
+<style scoped>
+.level-view-wrapper {
+    display: flex;
+    flex-grow: 1;
+    padding: 32px 16px 16px 16px;
+    flex-direction: column;
+    overflow: hidden;
+}
+header {
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.lesson-wrapper {
+    overflow: scroll;
+}
+</style>

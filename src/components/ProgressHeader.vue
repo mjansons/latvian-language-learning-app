@@ -70,4 +70,8 @@ header::after {
     bottom: -32px;
     transition: 0.3s ease-in-out;
 }
+
+h1 {
+    text-align: center;
+}
 </style>
