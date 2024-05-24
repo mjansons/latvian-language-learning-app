@@ -137,7 +137,7 @@ a {
     color: var(--black-500);
 }
 
-/* toggle slider */
+/* section toggle slider */
 .toggle {
     cursor: pointer;
     position: relative;
@@ -193,4 +193,4 @@ a {
     transition: ease-in-out 0.5s;
 }
 
-/* end of toggle slider */
+/* end of section toggle slider */
