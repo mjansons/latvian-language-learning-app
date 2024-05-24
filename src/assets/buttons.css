@@ -7,7 +7,7 @@ a {
 .btn-next,
 .btn-back {
     display: flex;
-    font-size: 14px;
+    font-size: var(--small);
     font-family: Satoshi-Bold, sans-serif;
     width: 80px;
     padding: 6px 12px;
@@ -59,7 +59,7 @@ a {
 .btn-continue-green,
 .btn-continue-red {
     color: var(--black-500);
-    font-size: 14px;
+    font-size: var(--small);
     padding: 6px 24px;
     height: fit-content;
     align-self: flex-end;
@@ -178,7 +178,7 @@ a {
 .label-left,
 .label-right {
     font-family: Satoshi-Bold, sans-serif;
-    font-size: 14px;
+    font-size: var(--small);
     margin: 12px;
     display: flex;
     justify-content: space-around;

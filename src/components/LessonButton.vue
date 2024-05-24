@@ -97,7 +97,7 @@ h2 {
 }
 h4 {
     font-family: Satoshi-Light;
-    font-size: 12px;
+    font-size: var(--small);
     color: var(--orange-100);
 }
 

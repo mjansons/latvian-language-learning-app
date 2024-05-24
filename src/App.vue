@@ -57,7 +57,6 @@ a {
     text-decoration: none;
 }
 
-/* mobile view */
 button {
     display: flex;
     flex: 1 1 0;
@@ -68,16 +67,17 @@ button {
     color: var(--white-a80);
     border: 0.5px solid transparent;
     border-radius: 12px;
-    padding: 0;
+    padding: 8px;
+    gap: 4px;
 
     & img {
-        margin: 8px 8px 4px 8px;
-        width: 16px;
-        height: 16px;
+        width: 24px;
+        height: 24px;
     }
     & span {
-        margin: 4px 8px 8px 8px;
+        font-family: Satoshi-Bold;
         text-decoration: none;
+        font-size: var(--medium);
     }
 }
 
@@ -95,6 +95,7 @@ button:active {
 .selected {
     background-color: var(--black-500);
     border: 0.5px solid var(--orange-5);
+    font-family: Satoshi-Bold;
 }
 
 /* desktop view */
@@ -119,16 +120,15 @@ button:active {
         flex-direction: row;
         justify-content: flex-start;
         align-items: center;
+        padding: 12px;
+        gap: 8px;
 
         & img {
-            margin: 12px 12px 12px 16px;
             width: 24px;
             height: 24px;
         }
         & span {
-            margin: 0;
-            font-family: Satoshi-Bold;
-            font-size: 16px;
+            font-size: var(--medium);
             text-decoration: none;
         }
     }

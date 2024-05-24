@@ -81,10 +81,10 @@ const accuracy = computed(() => {
         margin-left: 8px;
     }
     & h2 {
-        font-size: 16px;
+        font-size: var(--medium);
     }
     & p {
-        font-size: 12px;
+        font-size: var(--small);
         color: var(--orange-100);
     }
     & h2,

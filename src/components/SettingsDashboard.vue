@@ -86,7 +86,7 @@ const viewStore = useViewStore()
         text-align: left;
     }
     & p {
-        font-size: 12px;
+        font-size: var(--small);
         color: var(--white-a70);
         text-align: left;
     }

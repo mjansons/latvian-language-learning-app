@@ -13,6 +13,11 @@
   --green-a20: #193234;
   --red-100: #ff5775;
   --red-a20: #351425;
+  --small: 14px;
+  --medium: 16px;
+  --large: 18px;
+  --extra-large: 24px;
+
 
 }
 
@@ -98,7 +103,7 @@ header {
 
   h1 {
     font-family: Satoshi-Bold, sans-serif;
-    font-size: 18px;
+    font-size: var(--large);
     margin: 0;
     color: var(--white-a80);
     text-align: left;
@@ -106,7 +111,7 @@ header {
 
   p {
     font-family: Satoshi-Light, sans-serif;
-    font-size: 12px;
+    font-size: var(--small);
     margin-top: 4px;
     margin-bottom: 4px;
     color: var(--white-a80);
@@ -189,14 +194,14 @@ footer>button:only-child {
 
   & main h1 {
     font-family: Satoshi-Bold, sans-serif;
-    font-size: 24px;
+    font-size: var(--extra-large);
     margin: 16px 0;
     color: var(--white-a80);
   }
 
   & main p {
     font-family: Satoshi-Variable, sans-serif;
-    font-size: 16px;
+    font-size: var(--medium);
     color: var(--white-a50);
   }
 
