@@ -2,6 +2,7 @@
 import useViewStore from '@/stores/ViewStore'
 import { ref } from 'vue'
 import type { Ref } from 'vue'
+import SettingsDashboard from './SettingsDashboard.vue'
 
 interface Props {
     headerName: string
@@ -14,6 +15,8 @@ const currentPart: Ref<number> = ref(1)
 const progress: Ref<number> = ref(100 / props.totalParts)
 
 const viewStore = useViewStore()
+
+const showSettings: Ref<boolean> = ref(false)
 
 const incrementProgress = () => {
     const increment = 100 / props.totalParts
@@ -47,10 +50,22 @@ defineExpose({
             <img src="@/assets/icons/x.svg" alt="exit button" />
         </RouterLink>
         <h1>{{ props.headerName }}</h1>
-        <RouterLink :to="{ name: 'settings' }" @click="viewStore.mainNavVisible = true">
-            <img src="@/assets/icons/sprocket-1.svg" alt="settings" />
-        </RouterLink>
+        <img
+            src="@/assets/icons/sprocket-1.svg"
+            alt="settings"
+            @click="showSettings = !showSettings"
+            @keydown.enter="showSettings = !showSettings"
+            tabindex="0"
+        />
     </header>
+    <div v-if="showSettings" class="setting">
+        <div class="setting-content">
+            <SettingsDashboard></SettingsDashboard>
+            <button type="button" class="btn-next" @click="showSettings = !showSettings">
+                close
+            </button>
+        </div>
+    </div>
 </template>
 
 <style scoped>
@@ -60,6 +75,19 @@ header {
     flex-direction: row;
     justify-content: space-between;
 }
+
+.settings-header {
+    margin-bottom: 32px;
+
+    & p {
+        display: none;
+    }
+}
+
+.settings-wrapper {
+    padding: 0;
+}
+
 header::after {
     content: '';
     position: absolute;
@@ -85,5 +113,36 @@ img[alt='settings']:hover {
 img[alt='exit button']:active,
 img[alt='settings']:active {
     opacity: 0.25;
+}
+
+.setting {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    background-color: var(--black-a90);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 2;
+    overflow: auto;
+}
+
+.setting-content {
+    background-color: var(--black-100);
+    padding: 40px;
+    border-radius: 16px;
+    overflow: auto;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    gap: 32px;
+
+    & .btn-next {
+        align-self: flex-end;
+    }
 }
 </style>

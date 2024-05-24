@@ -26,8 +26,8 @@ const inProgress: Ref<boolean> = ref(true)
 const isAnswerCorrect: Ref<boolean> = ref(true)
 
 // to switch focus from inpput after pressing enter
-const continueCorrect: Ref<HTMLInputElement | null> = ref(null);
-const continueIncorrect: Ref<HTMLInputElement | null> = ref(null);
+const continueCorrect: Ref<HTMLInputElement | null> = ref(null)
+const continueIncorrect: Ref<HTMLInputElement | null> = ref(null)
 
 function checkAnswer(): void {
     if (answer.value.toLocaleLowerCase().trim() === props.correctAnswer) {
@@ -52,7 +52,14 @@ function checkAnswer(): void {
                 <label for="task">
                     {{ props.toTranslate }}
                 </label>
-                <input type="text" name="" id="task" placeholder="Type here" v-model="answer" @keydown.enter="checkAnswer"/>
+                <input
+                    type="text"
+                    name=""
+                    id="task"
+                    placeholder="Type here"
+                    v-model="answer"
+                    @keydown.enter="checkAnswer"
+                />
                 <button
                     type="button"
                     class="btn-hint"
@@ -70,7 +77,7 @@ function checkAnswer(): void {
                     </div>
                 </div>
             </div>
-            <div class="letter-button-wrapper">
+            <div v-if="viewStore.specialCharsVisible === true" class="letter-button-wrapper">
                 <button
                     v-for="letter in LETTERS"
                     :key="letter"
@@ -102,7 +109,9 @@ function checkAnswer(): void {
                 <div class="left-content">
                     <img src="@/assets/icons/red-x.svg" alt="incorrect answer" />
                     <h1>Incorrect!</h1>
-                    <p>Correct answer: <span>{{ props.correctAnswer }}</span></p>
+                    <p>
+                        Correct answer: <span>{{ props.correctAnswer }}</span>
+                    </p>
                 </div>
                 <button
                     type="button"
@@ -248,7 +257,8 @@ footer {
     flex-direction: column;
     gap: 8px;
 
-    & h1, p {
+    & h1,
+    p {
         margin: 0px;
     }
 
@@ -261,8 +271,6 @@ footer {
         font-size: 16px;
         color: var(--white-a70);
     }
-
-
 }
 
 .correct,
@@ -277,7 +285,6 @@ footer {
     & h1 {
         font-family: Satoshi-Bold, sans-serif;
         font-size: 24px;
-
     }
 }
 

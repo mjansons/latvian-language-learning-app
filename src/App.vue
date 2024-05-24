@@ -57,7 +57,7 @@ a {
     text-decoration: none;
 }
 
-/* desktop view */
+/* mobile view */
 button {
     display: flex;
     flex: 1 1 0;
@@ -97,7 +97,7 @@ button:active {
     border: 0.5px solid var(--orange-5);
 }
 
-/* mobile view */
+/* desktop view */
 @media only screen and (min-width: 800px) {
     nav {
         flex-grow: 1;
