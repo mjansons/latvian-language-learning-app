@@ -21,8 +21,8 @@ const practiceView: Ref<boolean> = ref(false)
                 <div>{{ testStore.testResults.streak }}</div>
             </div>
         </header>
-        <label class="toggle">
-            <input type="checkbox" v-model="practiceView" />
+        <label class="toggle" tabindex="0" @keydown.enter="practiceView = !practiceView">
+            <input type="checkbox" v-model="practiceView"/>
             <span class="slider"></span>
             <span :class="['label-left', { 'black-font': !practiceView }]">Learn</span>
             <span :class="['label-right', { 'black-font': practiceView }]">Practice</span>
