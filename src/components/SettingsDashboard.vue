@@ -69,7 +69,7 @@ const viewStore = useViewStore()
     flex-direction: column;
     flex-grow: 1;
     gap: 24px;
-    overflow: scroll;
+    overflow: auto;
 }
 .setting-box {
     display: flex;
