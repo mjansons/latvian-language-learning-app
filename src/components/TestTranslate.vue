@@ -147,7 +147,7 @@ footer {
     align-content: center;
     flex-grow: 1;
     justify-content: center;
-    overflow: scroll;
+    overflow: auto;
 
     h1 {
         margin: 16px 0;
