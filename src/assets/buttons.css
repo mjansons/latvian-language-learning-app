@@ -53,7 +53,8 @@ a {
 }
 
 .btn-continue-red {
-    background-color: var(--red-100);;
+    background-color: var(--red-100);
+    ;
 }
 
 .btn-continue-green,
