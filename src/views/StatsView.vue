@@ -59,7 +59,7 @@ const accuracy = computed(() => {
     display: flex;
     flex-direction: row;
     gap: 16px;
-    overflow: scroll;
+    overflow: auto;
     flex-wrap: wrap;
 }
 

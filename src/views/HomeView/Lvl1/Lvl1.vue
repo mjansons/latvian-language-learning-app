@@ -75,6 +75,6 @@ header {
 }
 
 .lesson-wrapper {
-    overflow: scroll;
+    overflow: auto;
 }
 </style>

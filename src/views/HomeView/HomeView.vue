@@ -51,7 +51,7 @@ const testStore = useTestStore()
 }
 
 nav {
-    overflow: scroll;
+    overflow: auto;
 }
 
 @media only screen and (min-width: 800px) {
